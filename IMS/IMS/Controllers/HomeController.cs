@@ -15,15 +15,11 @@ namespace IMS.Controllers
 
         public ActionResult Annoucements()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Instructors()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
