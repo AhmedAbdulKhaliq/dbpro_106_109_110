@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "manageCourses";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div>
+    <table style="width:100%">
+        <tr>
+            <th>CourseID</th>
+            <th>CourseName</th>
+            <th>CourseType</th>
+            <th>CourseFee</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
+            <th>Update</th>
+            <th>Delete</th>
+         </tr>
+        <tr>
+            <td>001</td>
+            <td>DataBase Management System</td>
+            <td>Online</td>
+            <td>100$</td>
+            <td>4/21/2019</td>
+            <td>6/21/2019</td>
+            <th>@Html.ActionLink("Edit", "Edit")</th>
+            <th>@Html.ActionLink("Delete", "Delete")</th>
+        </tr>
+    </table>
+</div>

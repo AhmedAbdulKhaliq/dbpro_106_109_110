@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "manageAnnoucements";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+<div>
+    <table style="width:100%">
+        <tr>
+            <th>AnnoucementID</th>
+            <th>NewsText</th>
+            <th>AnnoucementDate</th>
+            <th>CourseName</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <tr>
+            <td>09076</td>
+            <td>Tomorrow DBMS lecture is OFF!</td>
+            <td>4/21/2019</td>
+            <td>DataBase Management System</td>
+            <th>@Html.ActionLink("Edit", "Edit")</th>
+            <th>@Html.ActionLink("Delete", "Delete")</th>
+        </tr>
+    </table>
+</div>
+
+
+

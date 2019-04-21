@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,7 +195,26 @@
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\Linearicons-Free.svg" />
+    <Content Include="Content\img\about-img.jpg" />
+    <Content Include="Content\img\b1.jpg" />
+    <Content Include="Content\img\b2.jpg" />
+    <Content Include="Content\img\b3.jpg" />
+    <Content Include="Content\img\b4.jpg" />
+    <Content Include="Content\img\banner-bg.jpg" />
+    <Content Include="Content\img\cta-bg.jpg" />
+    <Content Include="Content\img\e1.jpg" />
+    <Content Include="Content\img\e2.jpg" />
+    <Content Include="Content\img\event-details-img.jpg" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\p1.jpg" />
+    <Content Include="Content\img\p2.jpg" />
+    <Content Include="Content\img\p3.jpg" />
+    <Content Include="Content\img\p4.jpg" />
+    <Content Include="Content\img\play.png" />
+    <Content Include="Content\img\s-bg.jpg" />
+    <Content Include="Content\img\search-bg.jpg" />
+    <Content Include="Content\img\top-banner.jpg" />
+    <Content Include="Content\img\video-bg.jpg" />
     <Content Include="Content\js\easing.min.js" />
     <Content Include="Content\js\hoverIntent.js" />
     <Content Include="Content\js\jquery-ui.js" />
@@ -325,6 +345,7 @@
     <Content Include="Content\scss\bootstrap\_type.scss" />
     <Content Include="Content\scss\bootstrap\_utilities.scss" />
     <Content Include="Content\scss\bootstrap\_variables.scss" />
+    <Content Include="Content\img\.DS_Store" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -348,7 +369,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -371,6 +391,15 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Annoucements.cshtml" />
+    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
+    <Content Include="Views\Admin\AddCourses.cshtml" />
+    <Content Include="Views\Admin\manageCourses.cshtml" />
+    <Content Include="Views\Admin\manageAnnoucements.cshtml" />
+    <Content Include="Views\Admin\manageStudent.cshtml" />
+    <Content Include="Views\Admin\manageInstructors.cshtml" />
+    <Content Include="Views\Admin\Courses.cshtml" />
+    <Content Include="Views\Admin\InstructorCourses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

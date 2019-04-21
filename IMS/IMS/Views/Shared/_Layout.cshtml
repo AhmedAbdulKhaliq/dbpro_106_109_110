@@ -31,7 +31,7 @@
 
 </head>
 <body>
-    <header id="header" id="home">
+    <header id="header">
         <div class="container main-menu">
             <div class="row align-items-center justify-content-between d-flex">
                 <div id="logo">
@@ -39,34 +39,14 @@
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="courses.html">Courses</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li class="menu-has-children">
-                            <a href="">Blog</a>
-                            <ul>
-                                <li><a href="blog-home.html">Blog Home</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-has-children">
-                            <a href="">Pages</a>
-                            <ul>
-                                <li><a href="course-details.html">Course Details</a></li>
-                                <li><a href="event-details.html">Event Details</a></li>
-                                <li><a href="elements.html">Elements</a></li>
-                                <li class="menu-has-children">
-                                    <a href="">Level 2 </a>
-                                    <ul>
-                                        <li><a href="#">Item One</a></li>
-                                        <li><a href="#">Item Two</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li>@Html.ActionLink("Courses", "Index", "Home")</li>
+                        @*<li><a href="courses.html">Courses</a></li>*@
+                        @*<li><a href="events.html">Annoucements</a></li>*@
+                        <li>@Html.ActionLink("Annoucements", "Annoucements", "Home")</li>
+                        <li><a href="gallery.html">Students</a></li>
+                        <li><a href="gallery.html">Instructors</a></li>
+                        <li><a href="gallery.html">Reports</a></li>
+                        <li><a href="contact.html">Log Out</a></li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
@@ -82,9 +62,6 @@
                         We Ensure better education
                         for a better world
                     </h1>
-                    <p class="pt-10 pb-10">
-                        In the history of modern astronomy, there is probably no one greater leap forward than the building and launch of the space telescope known as the Hubble.
-                    </p>
                     <a href="#" class="primary-btn text-uppercase">Get Started</a>
                 </div>
             </div>
@@ -92,90 +69,17 @@
     </section>
     <!-- End banner Area -->
         @RenderBody()
-        <!-- End contact-page Area -->
         <!-- start footer Area -->
         <footer class="footer-area section-gap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h4>Top Products</h4>
-                            <ul>
-                                <li><a href="#">Managed Website</a></li>
-                                <li><a href="#">Manage Reputation</a></li>
-                                <li><a href="#">Power Tools</a></li>
-                                <li><a href="#">Marketing Service</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h4>Quick links</h4>
-                            <ul>
-                                <li><a href="#">Jobs</a></li>
-                                <li><a href="#">Brand Assets</a></li>
-                                <li><a href="#">Investor Relations</a></li>
-                                <li><a href="#">Terms of Service</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h4>Features</h4>
-                            <ul>
-                                <li><a href="#">Jobs</a></li>
-                                <li><a href="#">Brand Assets</a></li>
-                                <li><a href="#">Investor Relations</a></li>
-                                <li><a href="#">Terms of Service</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h4>Resources</h4>
-                            <ul>
-                                <li><a href="#">Guides</a></li>
-                                <li><a href="#">Research</a></li>
-                                <li><a href="#">Experts</a></li>
-                                <li><a href="#">Agencies</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4  col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h4>Newsletter</h4>
-                            <p>Stay update with our latest</p>
-                            <div class="" id="mc_embed_signup">
-                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email Address '" required="" type="email">
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-default" type="submit">
-                                                <span class="lnr lnr-arrow-right"></span>
-                                            </button>
-                                        </div>
-                                        <div class="info"></div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom row align-items-center justify-content-between">
-                    <p class="footer-text m-0 col-lg-6 col-md-12">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            
+            <div class="footer-bottom row align-items-center justify-content-between">
+                    <p class="footer-text m-0 col-lg-3 col-md-3">
                         Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved. Developed By UET CSE Students.
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
-                    <div class="col-lg-6 col-sm-12 footer-social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
-                    </div>
+                    
                 </div>
-            </div>
         </footer>
         <!-- End footer Area -->
         <!-- Scripts -->

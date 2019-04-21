@@ -13,7 +13,7 @@ namespace IMS.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Annoucements()
         {
             ViewBag.Message = "Your application description page.";
 
