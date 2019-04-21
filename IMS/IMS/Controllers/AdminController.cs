@@ -33,5 +33,13 @@ namespace IMS.Controllers
         {
             return View();
         }
+        public ActionResult AddCourses()
+        {
+            return View();
+        }
+        public ActionResult AddInstructor()
+        {
+            return View();
+        }
     }
 }
