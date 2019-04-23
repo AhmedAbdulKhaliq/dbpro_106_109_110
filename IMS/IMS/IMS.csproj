@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -206,6 +207,7 @@
     <Content Include="Content\img\e2.jpg" />
     <Content Include="Content\img\event-details-img.jpg" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\m-img.jpg" />
     <Content Include="Content\img\p1.jpg" />
     <Content Include="Content\img\p2.jpg" />
     <Content Include="Content\img\p3.jpg" />
@@ -401,6 +403,10 @@
     <Content Include="Views\Admin\InstructorCourses.cshtml" />
     <Content Include="Views\Home\Instructors.cshtml" />
     <Content Include="Views\Admin\AddInstructor.cshtml" />
+    <Content Include="Views\Admin\AddAnnoucement.cshtml" />
+    <Content Include="Views\Shared\_Layout_Student.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\CourseDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

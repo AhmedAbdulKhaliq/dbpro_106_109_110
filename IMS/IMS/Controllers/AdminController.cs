@@ -41,5 +41,10 @@ namespace IMS.Controllers
         {
             return View();
         }
+
+        public ActionResult AddAnnoucement()
+        {
+            return View();
+        }
     }
 }

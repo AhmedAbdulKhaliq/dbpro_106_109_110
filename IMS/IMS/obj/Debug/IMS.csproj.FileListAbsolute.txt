@@ -64,6 +64,5 @@ F:\dbpro_106_109_110\IMS\IMS\bin\Microsoft.Owin.Security.OAuth.xml
 F:\dbpro_106_109_110\IMS\IMS\bin\Microsoft.Owin.Security.Google.xml
 F:\dbpro_106_109_110\IMS\IMS\bin\Microsoft.Owin.Security.Twitter.xml
 F:\dbpro_106_109_110\IMS\IMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-F:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.csprojResolveAssemblyReference.cache
 F:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.dll
 F:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.pdb
