@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using IMS.Models;
 
 namespace IMS.Controllers
 {
@@ -17,6 +18,26 @@ namespace IMS.Controllers
         public ActionResult CourseDetails()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(StudentModels.StudentRegisterModel item)
+        {
+            Student temp = new Student();
+            
+            temp.FirstName = item.FirstName;
+            temp.LastName = item.LastName;
+            temp.Email = item.Email;
+            temp.Contact = item.Contact;
+            temp.Cnic = item.Cnic;
+            temp.City = item.City;
+            temp.DOB = Convert.ToDateTime(item.DOB).Date;
+            temp.Password = item.Password;
+            temp.RegistrationDate = DateTime.Now.Date;
+            DB44Entities db = new DB44Entities();
+            db.Students.Add(temp);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

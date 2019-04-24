@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model IMS.Models.StudentModels.StudentRegisterModel
+
+<!DOCTYPE html>
 <html>
 <head>
     <!-- Mobile Specific Meta -->
@@ -61,17 +63,19 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 search-course-right section-gap" >
-                    <form class="form-wrap" action="#" style="padding-top:0em">
-                        <input type="text" class="form-control" name="name" placeholder="Enter FirstName" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter FirstName'">
-                        <input type="text" class="form-control" name="name" placeholder="Enter LastName" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter LastName'">
-                        <input type="email" class="form-control" name="name" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email'"> 
-                        <input type="phone" class="form-control" name="phone" placeholder="Your Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your PhNumber'">
-                        <input type="text" class="form-control" name="name" placeholder="Enter Cnic" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Cnic'">
-                        <input type="text" class="form-control" name="name" placeholder="Enter City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter City'">
-                        <input type="date" class="form-control" name="name" placeholder="Enter DateOfBirth" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter DateOfBirth'">
-                        <input type="password" class="form-control" name="password" placeholder="Enter Password" onfocus="this.placeholder = ''" onblur="    this.placeholder = 'Enter Password'">
+                    @using (Html.BeginForm("Register", "Student", new { style = "padding-top:0em", @class = "form-wrap" })) 
+                    {
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Enter First Name" })
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Enter Last Name" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email" })
+                        @Html.TextBoxFor(m => m.Contact, new { @class = "form-control", placeholder = "Enter Phone Number" })
+                        @Html.TextBoxFor(m => m.Cnic, new { @class = "form-control", placeholder = "Enter CNIC" })
+                        @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = "Enter City" })
+                        @Html.TextBoxFor(m => m.DOB, new { @type = "date", @class = "form-control", placeholder = "Enter Date Of Birth" })
+                        @Html.TextBoxFor(m => m.Password, new { @type = "password", @class = "form-control", placeholder = "Enter Password" })
                         <button class="primary-btn text-uppercase">Register</button>
-                    </form>
+                    }
+                    
                 </div>
             </div>
         </div>
