@@ -25,7 +25,7 @@ warning 6002: The table/view 'DB44.dbo.Admin' does not have a primary key define
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NewsText" Type="text" Nullable="false" />
           <Property Name="AnnoucementDate" Type="date" Nullable="false" />
           <Property Name="CourseId" Type="int" Nullable="false" />
@@ -52,12 +52,13 @@ warning 6002: The table/view 'DB44.dbo.CorrectAnswer' does not have a primary ke
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Type" Type="int" Nullable="false" />
           <Property Name="Fee" Type="int" Nullable="false" />
           <Property Name="StartDate" Type="date" Nullable="false" />
           <Property Name="EndDate" Type="date" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DB44.dbo.CourseInstructor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -85,7 +86,7 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
@@ -108,7 +109,7 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
@@ -134,7 +135,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IsPaid" Type="int" Nullable="false" />
           <Property Name="PaymentDate" Type="date" />
           <Property Name="CourseId" Type="int" Nullable="false" />
@@ -419,7 +420,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NewsText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="AnnoucementDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="CourseId" Type="Int32" Nullable="false" />
@@ -439,12 +440,13 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Type" Type="Int32" Nullable="false" />
           <Property Name="Fee" Type="Int32" Nullable="false" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ImagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Announcements" Relationship="Self.FK__Announcem__Cours__20C1E124" FromRole="Course" ToRole="Announcement" />
           <NavigationProperty Name="FinalResults" Relationship="Self.FK__FinalResu__Cours__267ABA7A" FromRole="Course" ToRole="FinalResult" />
           <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Course__286302EC" FromRole="Course" ToRole="Question" />
@@ -456,7 +458,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -483,7 +485,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -501,7 +503,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IsPaid" Type="Int32" Nullable="false" />
           <Property Name="PaymentDate" Type="DateTime" Precision="0" />
           <Property Name="CourseId" Type="Int32" Nullable="false" />
@@ -764,6 +766,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
                 <ScalarProperty Name="Fee" ColumnName="Fee" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

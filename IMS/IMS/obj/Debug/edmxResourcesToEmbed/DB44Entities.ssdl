@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB44Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB44.dbo.Admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Announcement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NewsText" Type="text" Nullable="false" />
+    <Property Name="AnnoucementDate" Type="date" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AnswerText" Type="text" Nullable="false" />
+    <Property Name="QuestionId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB44.dbo.CorrectAnswer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CorrectAnswer">
+    <Key>
+      <PropertyRef Name="QuestionId" />
+      <PropertyRef Name="AnswerId" />
+    </Key>
+    <Property Name="QuestionId" Type="int" Nullable="false" />
+    <Property Name="AnswerId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Fee" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="ImagePath" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB44.dbo.CourseInstructor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CourseInstructor">
+    <Key>
+      <PropertyRef Name="CourseId" />
+      <PropertyRef Name="InstructorId" />
+    </Key>
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="InstructorId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FinalResult">
+    <Key>
+      <PropertyRef Name="CourseId" />
+      <PropertyRef Name="StudentId" />
+      <PropertyRef Name="Marks" />
+    </Key>
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="Marks" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contact" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cnic" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="RegistrationDate" Type="date" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuestionText" Type="text" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contact" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cnic" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="RegistrationDate" Type="date" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="StudentEnrollment">
+    <Key>
+      <PropertyRef Name="CourseId" />
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="DateOfEnrollment" Type="date" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentFee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsPaid" Type="int" Nullable="false" />
+    <Property Name="PaymentDate" Type="date" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Announcem__Cours__20C1E124">
+    <End Role="Course" Type="Self.Course" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Announcement">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Answer__Question__21B6055D">
+    <End Role="Question" Type="Self.Question" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CorrectAn__Answe__22AA2996">
+    <End Role="Answer" Type="Self.Answer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CorrectAnswer" Type="Self.CorrectAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CorrectAnswer">
+        <PropertyRef Name="AnswerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CorrectAn__Quest__239E4DCF">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="CorrectAnswer" Type="Self.CorrectAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CorrectAnswer">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CourseIns__Cours__24927208">
+    <End Role="Course" Type="Self.Course" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CourseInstructor" Type="Self.CourseInstructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseInstructor">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CourseIns__Instr__25869641">
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CourseInstructor" Type="Self.CourseInstructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseInstructor">
+        <PropertyRef Name="InstructorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FinalResu__Cours__267ABA7A">
+    <End Role="Course" Type="Self.Course" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FinalResult" Type="Self.FinalResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FinalResult">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FinalResu__Stude__276EDEB3">
+    <End Role="Student" Type="Self.Student" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FinalResult" Type="Self.FinalResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FinalResult">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Question__Course__286302EC">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentEn__Cours__29572725">
+    <End Role="Course" Type="Self.Course" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StudentEnrollment" Type="Self.StudentEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentEnrollment">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentEn__Stude__2A4B4B5E">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="StudentEnrollment" Type="Self.StudentEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentEnrollment">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentFe__Cours__2B3F6F97">
+    <End Role="Course" Type="Self.Course" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StudentFee" Type="Self.StudentFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentFee">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentFe__Stude__2C3393D0">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="StudentFee" Type="Self.StudentFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentFee">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB44ModelStoreContainer">
+    <EntitySet Name="Announcement" EntityType="Self.Announcement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Answer" EntityType="Self.Answer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Instructor" EntityType="Self.Instructor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentFee" EntityType="Self.StudentFee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Admin].[FirstName] AS [FirstName], 
+    [Admin].[LastName] AS [LastName], 
+    [Admin].[Email] AS [Email], 
+    [Admin].[UserName] AS [UserName], 
+    [Admin].[Password] AS [Password]
+    FROM [dbo].[Admin] AS [Admin]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CorrectAnswer" EntityType="Self.CorrectAnswer" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CorrectAnswer].[QuestionId] AS [QuestionId], 
+    [CorrectAnswer].[AnswerId] AS [AnswerId]
+    FROM [dbo].[CorrectAnswer] AS [CorrectAnswer]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CourseInstructor" EntityType="Self.CourseInstructor" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CourseInstructor].[CourseId] AS [CourseId], 
+    [CourseInstructor].[InstructorId] AS [InstructorId]
+    FROM [dbo].[CourseInstructor] AS [CourseInstructor]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FinalResult" EntityType="Self.FinalResult" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FinalResult].[CourseId] AS [CourseId], 
+    [FinalResult].[StudentId] AS [StudentId], 
+    [FinalResult].[Marks] AS [Marks]
+    FROM [dbo].[FinalResult] AS [FinalResult]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="StudentEnrollment" EntityType="Self.StudentEnrollment" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [StudentEnrollment].[DateOfEnrollment] AS [DateOfEnrollment], 
+    [StudentEnrollment].[CourseId] AS [CourseId], 
+    [StudentEnrollment].[StudentId] AS [StudentId]
+    FROM [dbo].[StudentEnrollment] AS [StudentEnrollment]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Announcem__Cours__20C1E124" Association="Self.FK__Announcem__Cours__20C1E124">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Announcement" EntitySet="Announcement" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Answer__Question__21B6055D" Association="Self.FK__Answer__Question__21B6055D">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Answer" EntitySet="Answer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CorrectAn__Answe__22AA2996" Association="Self.FK__CorrectAn__Answe__22AA2996">
+      <End Role="Answer" EntitySet="Answer" />
+      <End Role="CorrectAnswer" EntitySet="CorrectAnswer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CorrectAn__Quest__239E4DCF" Association="Self.FK__CorrectAn__Quest__239E4DCF">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="CorrectAnswer" EntitySet="CorrectAnswer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CourseIns__Cours__24927208" Association="Self.FK__CourseIns__Cours__24927208">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="CourseInstructor" EntitySet="CourseInstructor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CourseIns__Instr__25869641" Association="Self.FK__CourseIns__Instr__25869641">
+      <End Role="Instructor" EntitySet="Instructor" />
+      <End Role="CourseInstructor" EntitySet="CourseInstructor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FinalResu__Cours__267ABA7A" Association="Self.FK__FinalResu__Cours__267ABA7A">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="FinalResult" EntitySet="FinalResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FinalResu__Stude__276EDEB3" Association="Self.FK__FinalResu__Stude__276EDEB3">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="FinalResult" EntitySet="FinalResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Question__Course__286302EC" Association="Self.FK__Question__Course__286302EC">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentEn__Cours__29572725" Association="Self.FK__StudentEn__Cours__29572725">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="StudentEnrollment" EntitySet="StudentEnrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentEn__Stude__2A4B4B5E" Association="Self.FK__StudentEn__Stude__2A4B4B5E">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="StudentEnrollment" EntitySet="StudentEnrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentFe__Cours__2B3F6F97" Association="Self.FK__StudentFe__Cours__2B3F6F97">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="StudentFee" EntitySet="StudentFee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentFe__Stude__2C3393D0" Association="Self.FK__StudentFe__Stude__2C3393D0">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="StudentFee" EntitySet="StudentFee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

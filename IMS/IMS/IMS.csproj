@@ -165,13 +165,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs">
-      <DependentUpon>DB44Model.tt</DependentUpon>
+      <DependentUpon>DB44Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Announcement.cs">
-      <DependentUpon>DB44Model.tt</DependentUpon>
+      <DependentUpon>DB44Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Answer.cs">
-      <DependentUpon>DB44Model.tt</DependentUpon>
+      <DependentUpon>DB44Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -184,31 +184,31 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Course.cs">
-      <DependentUpon>DB44Model.tt</DependentUpon>
+      <DependentUpon>DB44Entities.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB44Model.Context.cs">
+    <Compile Include="DB44Entities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB44Model.Context.tt</DependentUpon>
+      <DependentUpon>DB44Entities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB44Model.cs">
+    <Compile Include="DB44Entities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB44Model.tt</DependentUpon>
+      <DependentUpon>DB44Entities.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB44Model.Designer.cs">
+    <Compile Include="DB44Entities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB44Model.edmx</DependentUpon>
+      <DependentUpon>DB44Entities.edmx</DependentUpon>
     </Compile>
     <Compile Include="FinalResult.cs">
-      <DependentUpon>DB44Model.tt</DependentUpon>
+      <DependentUpon>DB44Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Instructor.cs">
-      <DependentUpon>DB44Model.tt</DependentUpon>
+      <DependentUpon>DB44Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CourseModels.cs" />
@@ -217,17 +217,17 @@
     <Compile Include="Models\StudentModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs">
-      <DependentUpon>DB44Model.tt</DependentUpon>
+      <DependentUpon>DB44Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Student.cs">
-      <DependentUpon>DB44Model.tt</DependentUpon>
+      <DependentUpon>DB44Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentEnrollment.cs">
-      <DependentUpon>DB44Model.tt</DependentUpon>
+      <DependentUpon>DB44Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentFee.cs">
-      <DependentUpon>DB44Model.tt</DependentUpon>
+      <DependentUpon>DB44Entities.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -279,15 +279,15 @@
     <Content Include="Content\js\superfish.min.js" />
     <Content Include="Content\js\vendor\bootstrap.min.js" />
     <Content Include="Content\js\vendor\jquery-2.2.4.min.js" />
-    <Content Include="DB44Model.Context.tt">
+    <Content Include="DB44Entities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB44Model.edmx</DependentUpon>
-      <LastGenOutput>DB44Model.Context.cs</LastGenOutput>
+      <DependentUpon>DB44Entities.edmx</DependentUpon>
+      <LastGenOutput>DB44Entities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB44Model.tt">
+    <Content Include="DB44Entities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB44Model.edmx</DependentUpon>
-      <LastGenOutput>DB44Model.cs</LastGenOutput>
+      <DependentUpon>DB44Entities.edmx</DependentUpon>
+      <LastGenOutput>DB44Entities.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -407,12 +407,12 @@
     <Content Include="Content\scss\bootstrap\_utilities.scss" />
     <Content Include="Content\scss\bootstrap\_variables.scss" />
     <Content Include="Content\img\.DS_Store" />
-    <EntityDeploy Include="DB44Model.edmx">
+    <EntityDeploy Include="DB44Entities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB44Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>DB44Entities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DB44Model.edmx.diagram">
-      <DependentUpon>DB44Model.edmx</DependentUpon>
+    <Content Include="DB44Entities.edmx.diagram">
+      <DependentUpon>DB44Entities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
