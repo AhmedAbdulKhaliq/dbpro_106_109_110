@@ -23,8 +23,8 @@ namespace IMS.Controllers
         [HttpPost]
         public ActionResult Register(StudentModels.StudentRegisterModel item)
         {
+            DB44Entities db = new DB44Entities();
             Student temp = new Student();
-            
             temp.FirstName = item.FirstName;
             temp.LastName = item.LastName;
             temp.Email = item.Email;
@@ -34,7 +34,7 @@ namespace IMS.Controllers
             temp.DOB = Convert.ToDateTime(item.DOB).Date;
             temp.Password = item.Password;
             temp.RegistrationDate = DateTime.Now.Date;
-            DB44Entities db = new DB44Entities();
+            
             db.Students.Add(temp);
             db.SaveChanges();
             return RedirectToAction("Index", "Home");

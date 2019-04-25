@@ -63,8 +63,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 search-course-right section-gap" >
-                    @using (Html.BeginForm("Register", "Student", new { style = "padding-top:0em", @class = "form-wrap" })) 
-                    {
+                    <form class="form-wrap" action="/Student/Register" style="padding-top:0em" method="post">
                         @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Enter First Name" })
                         @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Enter Last Name" })
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email" })
@@ -74,9 +73,9 @@
                         @Html.TextBoxFor(m => m.DOB, new { @type = "date", @class = "form-control", placeholder = "Enter Date Of Birth" })
                         @Html.TextBoxFor(m => m.Password, new { @type = "password", @class = "form-control", placeholder = "Enter Password" })
                         <button class="primary-btn text-uppercase">Register</button>
-                    }
-                    
-                </div>
+                      </form>
+
+</div>
             </div>
         </div>
     </section>
