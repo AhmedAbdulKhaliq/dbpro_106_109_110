@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB44ModelStoreContainer" CdmEntityContainer="DB44Entities">
+    <EntitySetMapping Name="Announcements">
+      <EntityTypeMapping TypeName="DB44Model.Announcement">
+        <MappingFragment StoreEntitySet="Announcement">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NewsText" ColumnName="NewsText" />
+          <ScalarProperty Name="AnnoucementDate" ColumnName="AnnoucementDate" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="DB44Model.Answer">
+        <MappingFragment StoreEntitySet="Answer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="DB44Model.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instructors">
+      <EntityTypeMapping TypeName="DB44Model.Instructor">
+        <MappingFragment StoreEntitySet="Instructor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="DB44Model.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="DB44Model.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentFees">
+      <EntityTypeMapping TypeName="DB44Model.StudentFee">
+        <MappingFragment StoreEntitySet="StudentFee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="DB44Model.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinalResults">
+      <EntityTypeMapping TypeName="DB44Model.FinalResult">
+        <MappingFragment StoreEntitySet="FinalResult">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentEnrollments">
+      <EntityTypeMapping TypeName="DB44Model.StudentEnrollment">
+        <MappingFragment StoreEntitySet="StudentEnrollment">
+          <ScalarProperty Name="DateOfEnrollment" ColumnName="DateOfEnrollment" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CorrectAnswer" TypeName="DB44Model.CorrectAnswer" StoreEntitySet="CorrectAnswer">
+      <EndProperty Name="Answer">
+        <ScalarProperty Name="Id" ColumnName="AnswerId" />
+      </EndProperty>
+      <EndProperty Name="Question">
+        <ScalarProperty Name="Id" ColumnName="QuestionId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CourseInstructor" TypeName="DB44Model.CourseInstructor" StoreEntitySet="CourseInstructor">
+      <EndProperty Name="Course">
+        <ScalarProperty Name="Id" ColumnName="CourseId" />
+      </EndProperty>
+      <EndProperty Name="Instructor">
+        <ScalarProperty Name="Id" ColumnName="InstructorId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
