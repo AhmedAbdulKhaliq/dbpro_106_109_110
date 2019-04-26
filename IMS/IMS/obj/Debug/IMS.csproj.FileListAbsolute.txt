@@ -139,3 +139,6 @@ E:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.pdb
 E:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.Migrations.tablesadd.resources
 E:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.csproj.GenerateResource.Cache
 E:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.Migrations.addprofiledata.resources
+F:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.Migrations.tablesadd.resources
+F:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.Migrations.addprofiledata.resources
+F:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.csproj.GenerateResource.Cache

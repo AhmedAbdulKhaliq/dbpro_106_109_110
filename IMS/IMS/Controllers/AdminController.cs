@@ -56,7 +56,15 @@ namespace IMS.Controllers
             
             temp.Name = item.Name;
             temp.Fee = item.Fee;
-            temp.Type = item.Type;
+            if(item.isShort)
+            {
+                temp.Type = 0;
+            }
+            else
+            {
+                temp.Type = 1;
+            }
+            
             temp.StartDate = item.StartDate;
             temp.EndDate = item.EndDate;
             DB44Entities db = new DB44Entities();

@@ -38,6 +38,13 @@ namespace IMS
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Contact { get; set; }
+        public string Cnic { get; set; }
+        public string City { get; set; }
+        public System.DateTime DOB { get; set; }
+        public System.DateTime RegistrationDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }

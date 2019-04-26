@@ -75,6 +75,13 @@
     <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
     <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
     <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
     <NavigationProperty Name="FinalResults" Relationship="Self.FK__FinalResu__Stude__276EDEB3" FromRole="AspNetUsers" ToRole="FinalResult" />
@@ -96,7 +103,7 @@
     <Property Name="ImagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Announcements" Relationship="Self.FK__Announcem__Cours__20C1E124" FromRole="Course" ToRole="Announcement" />
     <NavigationProperty Name="FinalResults" Relationship="Self.FK__FinalResu__Cours__267ABA7A" FromRole="Course" ToRole="FinalResult" />
-    <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Course__4F7CD00D" FromRole="Course" ToRole="Question" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Course__34C8D9D1" FromRole="Course" ToRole="Question" />
     <NavigationProperty Name="StudentEnrollments" Relationship="Self.FK__StudentEn__Cours__29572725" FromRole="Course" ToRole="StudentEnrollment" />
     <NavigationProperty Name="StudentFees" Relationship="Self.FK__StudentFe__Cours__2B3F6F97" FromRole="Course" ToRole="StudentFee" />
     <NavigationProperty Name="AspNetUsers" Relationship="Self.CourseInstructor" FromRole="Course" ToRole="AspNetUsers" />
@@ -109,7 +116,7 @@
     <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CourseId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Answers" Relationship="Self.FK__Answer__Question__21B6055D" FromRole="Question" ToRole="Answer" />
-    <NavigationProperty Name="Course" Relationship="Self.FK__Question__Course__4F7CD00D" FromRole="Question" ToRole="Course" />
+    <NavigationProperty Name="Course" Relationship="Self.FK__Question__Course__34C8D9D1" FromRole="Question" ToRole="Course" />
     <NavigationProperty Name="Answers1" Relationship="Self.CorrectAnswer" FromRole="Question" ToRole="Answer" />
   </EntityType>
   <EntityType Name="StudentFee">
@@ -255,7 +262,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Question__Course__4F7CD00D">
+  <Association Name="FK__Question__Course__34C8D9D1">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
     <End Role="Question" Type="Self.Question" Multiplicity="*" />
     <ReferentialConstraint>
@@ -352,7 +359,7 @@
       <End Role="Course" EntitySet="Courses" />
       <End Role="FinalResult" EntitySet="FinalResults" />
     </AssociationSet>
-    <AssociationSet Name="FK__Question__Course__4F7CD00D" Association="Self.FK__Question__Course__4F7CD00D">
+    <AssociationSet Name="FK__Question__Course__34C8D9D1" Association="Self.FK__Question__Course__34C8D9D1">
       <End Role="Course" EntitySet="Courses" />
       <End Role="Question" EntitySet="Questions" />
     </AssociationSet>
