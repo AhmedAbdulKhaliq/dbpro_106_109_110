@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eb94f8b6639e4c329b28702ce3854911" Name="Diagram1">
+        <EntityTypeShape EntityType="DB44Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.Announcement" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.Answer" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.AspNetRole" Width="1.5" PointX="3.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.AspNetUserClaim" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.AspNetUserLogin" Width="1.5" PointX="8.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.AspNetUser" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.Course" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.Question" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.StudentFee" Width="1.5" PointX="8.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.FinalResult" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.StudentEnrollment" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
+        <AssociationConnector Association="DB44Model.FK__Announcem__Cours__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK__Answer__Question__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK__FinalResu__Stude__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK__StudentEn__Stude__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK__StudentFe__Stude__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK__FinalResu__Cours__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK__Question__Course__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK__StudentEn__Cours__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK__StudentFe__Cours__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.CorrectAnswer" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.CourseInstructor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

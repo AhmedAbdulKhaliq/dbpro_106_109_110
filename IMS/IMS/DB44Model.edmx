@@ -5,21 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="DB44Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DB44.dbo.Admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Admin">
+        <EntityType Name="__MigrationHistory">
           <Key>
-            <PropertyRef Name="FirstName" />
-            <PropertyRef Name="LastName" />
-            <PropertyRef Name="Email" />
-            <PropertyRef Name="UserName" />
-            <PropertyRef Name="Password" />
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
           </Key>
-          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
         </EntityType>
         <EntityType Name="Announcement">
           <Key>
@@ -37,6 +31,57 @@ warning 6002: The table/view 'DB44.dbo.Admin' does not have a primary key define
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AnswerText" Type="text" Nullable="false" />
           <Property Name="QuestionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DB44.dbo.CorrectAnswer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -68,7 +113,7 @@ warning 6002: The table/view 'DB44.dbo.CourseInstructor' does not have a primary
             <PropertyRef Name="InstructorId" />
           </Key>
           <Property Name="CourseId" Type="int" Nullable="false" />
-          <Property Name="InstructorId" Type="int" Nullable="false" />
+          <Property Name="InstructorId" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -79,23 +124,8 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
             <PropertyRef Name="Marks" />
           </Key>
           <Property Name="CourseId" Type="int" Nullable="false" />
-          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Marks" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Instructor">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Contact" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Cnic" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="DOB" Type="date" Nullable="false" />
-          <Property Name="RegistrationDate" Type="date" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Question">
           <Key>
@@ -104,21 +134,6 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="QuestionText" Type="text" Nullable="false" />
           <Property Name="CourseId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Contact" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Cnic" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="DOB" Type="date" Nullable="false" />
-          <Property Name="RegistrationDate" Type="date" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -129,7 +144,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           </Key>
           <Property Name="DateOfEnrollment" Type="date" />
           <Property Name="CourseId" Type="int" Nullable="false" />
-          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="StudentFee">
           <Key>
@@ -139,7 +154,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           <Property Name="IsPaid" Type="int" Nullable="false" />
           <Property Name="PaymentDate" Type="date" />
           <Property Name="CourseId" Type="int" Nullable="false" />
-          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <Association Name="FK__Announcem__Cours__20C1E124">
           <End Role="Course" Type="Self.Course" Multiplicity="1">
@@ -183,7 +198,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CorrectAn__Quest__239E4DCF">
+        <Association Name="FK__CorrectAn__Quest__4AB81AF0">
           <End Role="Question" Type="Self.Question" Multiplicity="1" />
           <End Role="CorrectAnswer" Type="Self.CorrectAnswer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -210,12 +225,12 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__CourseIns__Instr__25869641">
-          <End Role="Instructor" Type="Self.Instructor" Multiplicity="1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="CourseInstructor" Type="Self.CourseInstructor" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Instructor">
+            <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="CourseInstructor">
@@ -238,12 +253,12 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__FinalResu__Stude__276EDEB3">
-          <End Role="Student" Type="Self.Student" Multiplicity="1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="FinalResult" Type="Self.FinalResult" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Student">
+            <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="FinalResult">
@@ -251,7 +266,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Question__Course__286302EC">
+        <Association Name="FK__Question__Course__4F7CD00D">
           <End Role="Course" Type="Self.Course" Multiplicity="1" />
           <End Role="Question" Type="Self.Question" Multiplicity="*" />
           <ReferentialConstraint>
@@ -277,11 +292,11 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StudentEn__Stude__2A4B4B5E">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+        <Association Name="FK__StudentEn__Stude__5165187F">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="StudentEnrollment" Type="Self.StudentEnrollment" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Student">
+            <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="StudentEnrollment">
@@ -303,11 +318,11 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StudentFe__Stude__2C3393D0">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+        <Association Name="FK__StudentFe__Stude__534D60F1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="StudentFee" Type="Self.StudentFee" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Student">
+            <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="StudentFee">
@@ -315,23 +330,74 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DB44ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Announcement" EntityType="Self.Announcement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Answer" EntityType="Self.Answer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Instructor" EntityType="Self.Instructor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentFee" EntityType="Self.StudentFee" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Admin" EntityType="Self.Admin" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Admin].[FirstName] AS [FirstName], 
-    [Admin].[LastName] AS [LastName], 
-    [Admin].[Email] AS [Email], 
-    [Admin].[UserName] AS [UserName], 
-    [Admin].[Password] AS [Password]
-    FROM [dbo].[Admin] AS [Admin]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="CorrectAnswer" EntityType="Self.CorrectAnswer" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [CorrectAnswer].[QuestionId] AS [QuestionId], 
@@ -370,7 +436,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             <End Role="Answer" EntitySet="Answer" />
             <End Role="CorrectAnswer" EntitySet="CorrectAnswer" />
           </AssociationSet>
-          <AssociationSet Name="FK__CorrectAn__Quest__239E4DCF" Association="Self.FK__CorrectAn__Quest__239E4DCF">
+          <AssociationSet Name="FK__CorrectAn__Quest__4AB81AF0" Association="Self.FK__CorrectAn__Quest__4AB81AF0">
             <End Role="Question" EntitySet="Question" />
             <End Role="CorrectAnswer" EntitySet="CorrectAnswer" />
           </AssociationSet>
@@ -379,7 +445,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             <End Role="CourseInstructor" EntitySet="CourseInstructor" />
           </AssociationSet>
           <AssociationSet Name="FK__CourseIns__Instr__25869641" Association="Self.FK__CourseIns__Instr__25869641">
-            <End Role="Instructor" EntitySet="Instructor" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="CourseInstructor" EntitySet="CourseInstructor" />
           </AssociationSet>
           <AssociationSet Name="FK__FinalResu__Cours__267ABA7A" Association="Self.FK__FinalResu__Cours__267ABA7A">
@@ -387,10 +453,10 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             <End Role="FinalResult" EntitySet="FinalResult" />
           </AssociationSet>
           <AssociationSet Name="FK__FinalResu__Stude__276EDEB3" Association="Self.FK__FinalResu__Stude__276EDEB3">
-            <End Role="Student" EntitySet="Student" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="FinalResult" EntitySet="FinalResult" />
           </AssociationSet>
-          <AssociationSet Name="FK__Question__Course__286302EC" Association="Self.FK__Question__Course__286302EC">
+          <AssociationSet Name="FK__Question__Course__4F7CD00D" Association="Self.FK__Question__Course__4F7CD00D">
             <End Role="Course" EntitySet="Course" />
             <End Role="Question" EntitySet="Question" />
           </AssociationSet>
@@ -398,17 +464,33 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             <End Role="Course" EntitySet="Course" />
             <End Role="StudentEnrollment" EntitySet="StudentEnrollment" />
           </AssociationSet>
-          <AssociationSet Name="FK__StudentEn__Stude__2A4B4B5E" Association="Self.FK__StudentEn__Stude__2A4B4B5E">
-            <End Role="Student" EntitySet="Student" />
+          <AssociationSet Name="FK__StudentEn__Stude__5165187F" Association="Self.FK__StudentEn__Stude__5165187F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="StudentEnrollment" EntitySet="StudentEnrollment" />
           </AssociationSet>
           <AssociationSet Name="FK__StudentFe__Cours__2B3F6F97" Association="Self.FK__StudentFe__Cours__2B3F6F97">
             <End Role="Course" EntitySet="Course" />
             <End Role="StudentFee" EntitySet="StudentFee" />
           </AssociationSet>
-          <AssociationSet Name="FK__StudentFe__Stude__2C3393D0" Association="Self.FK__StudentFe__Stude__2C3393D0">
-            <End Role="Student" EntitySet="Student" />
+          <AssociationSet Name="FK__StudentFe__Stude__534D60F1" Association="Self.FK__StudentFe__Stude__534D60F1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="StudentFee" EntitySet="StudentFee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -416,6 +498,16 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB44Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="Announcement">
           <Key>
             <PropertyRef Name="Id" />
@@ -436,6 +528,59 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           <NavigationProperty Name="Question" Relationship="Self.FK__Answer__Question__21B6055D" FromRole="Answer" ToRole="Question" />
           <NavigationProperty Name="Questions" Relationship="Self.CorrectAnswer" FromRole="Answer" ToRole="Question" />
         </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="FinalResults" Relationship="Self.FK__FinalResu__Stude__276EDEB3" FromRole="AspNetUsers" ToRole="FinalResult" />
+          <NavigationProperty Name="StudentEnrollments" Relationship="Self.FK__StudentEn__Stude__5165187F" FromRole="AspNetUsers" ToRole="StudentEnrollment" />
+          <NavigationProperty Name="StudentFees" Relationship="Self.FK__StudentFe__Stude__534D60F1" FromRole="AspNetUsers" ToRole="StudentFee" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="Courses" Relationship="Self.CourseInstructor" FromRole="AspNetUsers" ToRole="Course" />
+        </EntityType>
         <EntityType Name="Course">
           <Key>
             <PropertyRef Name="Id" />
@@ -449,26 +594,10 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           <Property Name="ImagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Announcements" Relationship="Self.FK__Announcem__Cours__20C1E124" FromRole="Course" ToRole="Announcement" />
           <NavigationProperty Name="FinalResults" Relationship="Self.FK__FinalResu__Cours__267ABA7A" FromRole="Course" ToRole="FinalResult" />
-          <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Course__286302EC" FromRole="Course" ToRole="Question" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Course__4F7CD00D" FromRole="Course" ToRole="Question" />
           <NavigationProperty Name="StudentEnrollments" Relationship="Self.FK__StudentEn__Cours__29572725" FromRole="Course" ToRole="StudentEnrollment" />
           <NavigationProperty Name="StudentFees" Relationship="Self.FK__StudentFe__Cours__2B3F6F97" FromRole="Course" ToRole="StudentFee" />
-          <NavigationProperty Name="Instructors" Relationship="Self.CourseInstructor" FromRole="Course" ToRole="Instructor" />
-        </EntityType>
-        <EntityType Name="Instructor">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Courses" Relationship="Self.CourseInstructor" FromRole="Instructor" ToRole="Course" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.CourseInstructor" FromRole="Course" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="Question">
           <Key>
@@ -478,26 +607,8 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CourseId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Answers" Relationship="Self.FK__Answer__Question__21B6055D" FromRole="Question" ToRole="Answer" />
-          <NavigationProperty Name="Course" Relationship="Self.FK__Question__Course__286302EC" FromRole="Question" ToRole="Course" />
+          <NavigationProperty Name="Course" Relationship="Self.FK__Question__Course__4F7CD00D" FromRole="Question" ToRole="Course" />
           <NavigationProperty Name="Answers1" Relationship="Self.CorrectAnswer" FromRole="Question" ToRole="Answer" />
-        </EntityType>
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="FinalResults" Relationship="Self.FK__FinalResu__Stude__276EDEB3" FromRole="Student" ToRole="FinalResult" />
-          <NavigationProperty Name="StudentEnrollments" Relationship="Self.FK__StudentEn__Stude__2A4B4B5E" FromRole="Student" ToRole="StudentEnrollment" />
-          <NavigationProperty Name="StudentFees" Relationship="Self.FK__StudentFe__Stude__2C3393D0" FromRole="Student" ToRole="StudentFee" />
         </EntityType>
         <EntityType Name="StudentFee">
           <Key>
@@ -507,23 +618,9 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           <Property Name="IsPaid" Type="Int32" Nullable="false" />
           <Property Name="PaymentDate" Type="DateTime" Precision="0" />
           <Property Name="CourseId" Type="Int32" Nullable="false" />
-          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__StudentFe__Stude__534D60F1" FromRole="StudentFee" ToRole="AspNetUsers" />
           <NavigationProperty Name="Course" Relationship="Self.FK__StudentFe__Cours__2B3F6F97" FromRole="StudentFee" ToRole="Course" />
-          <NavigationProperty Name="Student" Relationship="Self.FK__StudentFe__Stude__2C3393D0" FromRole="StudentFee" ToRole="Student" />
-        </EntityType>
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="FirstName" />
-            <PropertyRef Name="LastName" />
-            <PropertyRef Name="Email" />
-            <PropertyRef Name="UserName" />
-            <PropertyRef Name="Password" />
-          </Key>
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="FinalResult">
           <Key>
@@ -532,10 +629,10 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             <PropertyRef Name="Marks" />
           </Key>
           <Property Name="CourseId" Type="Int32" Nullable="false" />
-          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Marks" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__FinalResu__Stude__276EDEB3" FromRole="FinalResult" ToRole="AspNetUsers" />
           <NavigationProperty Name="Course" Relationship="Self.FK__FinalResu__Cours__267ABA7A" FromRole="FinalResult" ToRole="Course" />
-          <NavigationProperty Name="Student" Relationship="Self.FK__FinalResu__Stude__276EDEB3" FromRole="FinalResult" ToRole="Student" />
         </EntityType>
         <EntityType Name="StudentEnrollment">
           <Key>
@@ -544,9 +641,9 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           </Key>
           <Property Name="DateOfEnrollment" Type="DateTime" Precision="0" />
           <Property Name="CourseId" Type="Int32" Nullable="false" />
-          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__StudentEn__Stude__5165187F" FromRole="StudentEnrollment" ToRole="AspNetUsers" />
           <NavigationProperty Name="Course" Relationship="Self.FK__StudentEn__Cours__29572725" FromRole="StudentEnrollment" ToRole="Course" />
-          <NavigationProperty Name="Student" Relationship="Self.FK__StudentEn__Stude__2A4B4B5E" FromRole="StudentEnrollment" ToRole="Student" />
         </EntityType>
         <Association Name="FK__Announcem__Cours__20C1E124">
           <End Role="Course" Type="Self.Course" Multiplicity="1">
@@ -576,6 +673,72 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FinalResu__Stude__276EDEB3">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FinalResult" Type="Self.FinalResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FinalResult">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEn__Stude__5165187F">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="StudentEnrollment" Type="Self.StudentEnrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentEnrollment">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentFe__Stude__534D60F1">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="StudentFee" Type="Self.StudentFee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentFee">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__FinalResu__Cours__267ABA7A">
           <End Role="Course" Type="Self.Course" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -590,7 +753,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Question__Course__286302EC">
+        <Association Name="FK__Question__Course__4F7CD00D">
           <End Role="Course" Type="Self.Course" Multiplicity="1" />
           <End Role="Question" Type="Self.Question" Multiplicity="*" />
           <ReferentialConstraint>
@@ -630,43 +793,9 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FinalResu__Stude__276EDEB3">
-          <End Role="Student" Type="Self.Student" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="FinalResult" Type="Self.FinalResult" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FinalResult">
-              <PropertyRef Name="StudentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__StudentEn__Stude__2A4B4B5E">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
-          <End Role="StudentEnrollment" Type="Self.StudentEnrollment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StudentEnrollment">
-              <PropertyRef Name="StudentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__StudentFe__Stude__2C3393D0">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
-          <End Role="StudentFee" Type="Self.StudentFee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StudentFee">
-              <PropertyRef Name="StudentId" />
-            </Dependent>
-          </ReferentialConstraint>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
         </Association>
         <Association Name="CorrectAnswer">
           <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
@@ -674,17 +803,19 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
         </Association>
         <Association Name="CourseInstructor">
           <End Role="Course" Type="Self.Course" Multiplicity="*" />
-          <End Role="Instructor" Type="Self.Instructor" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
         </Association>
         <EntityContainer Name="DB44Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="Announcements" EntityType="Self.Announcement" />
           <EntitySet Name="Answers" EntityType="Self.Answer" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
           <EntitySet Name="Courses" EntityType="Self.Course" />
-          <EntitySet Name="Instructors" EntityType="Self.Instructor" />
           <EntitySet Name="Questions" EntityType="Self.Question" />
-          <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="StudentFees" EntityType="Self.StudentFee" />
-          <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="FinalResults" EntityType="Self.FinalResult" />
           <EntitySet Name="StudentEnrollments" EntityType="Self.StudentEnrollment" />
           <AssociationSet Name="FK__Announcem__Cours__20C1E124" Association="Self.FK__Announcem__Cours__20C1E124">
@@ -695,11 +826,31 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             <End Role="Question" EntitySet="Questions" />
             <End Role="Answer" EntitySet="Answers" />
           </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FinalResu__Stude__276EDEB3" Association="Self.FK__FinalResu__Stude__276EDEB3">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="FinalResult" EntitySet="FinalResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEn__Stude__5165187F" Association="Self.FK__StudentEn__Stude__5165187F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentEnrollment" EntitySet="StudentEnrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentFe__Stude__534D60F1" Association="Self.FK__StudentFe__Stude__534D60F1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentFee" EntitySet="StudentFees" />
+          </AssociationSet>
           <AssociationSet Name="FK__FinalResu__Cours__267ABA7A" Association="Self.FK__FinalResu__Cours__267ABA7A">
             <End Role="Course" EntitySet="Courses" />
             <End Role="FinalResult" EntitySet="FinalResults" />
           </AssociationSet>
-          <AssociationSet Name="FK__Question__Course__286302EC" Association="Self.FK__Question__Course__286302EC">
+          <AssociationSet Name="FK__Question__Course__4F7CD00D" Association="Self.FK__Question__Course__4F7CD00D">
             <End Role="Course" EntitySet="Courses" />
             <End Role="Question" EntitySet="Questions" />
           </AssociationSet>
@@ -711,17 +862,9 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             <End Role="Course" EntitySet="Courses" />
             <End Role="StudentFee" EntitySet="StudentFees" />
           </AssociationSet>
-          <AssociationSet Name="FK__FinalResu__Stude__276EDEB3" Association="Self.FK__FinalResu__Stude__276EDEB3">
-            <End Role="Student" EntitySet="Students" />
-            <End Role="FinalResult" EntitySet="FinalResults" />
-          </AssociationSet>
-          <AssociationSet Name="FK__StudentEn__Stude__2A4B4B5E" Association="Self.FK__StudentEn__Stude__2A4B4B5E">
-            <End Role="Student" EntitySet="Students" />
-            <End Role="StudentEnrollment" EntitySet="StudentEnrollments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__StudentFe__Stude__2C3393D0" Association="Self.FK__StudentFe__Stude__2C3393D0">
-            <End Role="Student" EntitySet="Students" />
-            <End Role="StudentFee" EntitySet="StudentFees" />
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <AssociationSet Name="CorrectAnswer" Association="Self.CorrectAnswer">
             <End Role="Answer" EntitySet="Answers" />
@@ -729,7 +872,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
           </AssociationSet>
           <AssociationSet Name="CourseInstructor" Association="Self.CourseInstructor">
             <End Role="Course" EntitySet="Courses" />
-            <End Role="Instructor" EntitySet="Instructors" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -738,6 +881,16 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DB44ModelStoreContainer" CdmEntityContainer="DB44Entities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="DB44Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Announcements">
             <EntityTypeMapping TypeName="DB44Model.Announcement">
               <MappingFragment StoreEntitySet="Announcement">
@@ -757,6 +910,51 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="DB44Model.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="DB44Model.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="DB44Model.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="DB44Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="DB44Model.Course">
               <MappingFragment StoreEntitySet="Course">
@@ -770,44 +968,12 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Instructors">
-            <EntityTypeMapping TypeName="DB44Model.Instructor">
-              <MappingFragment StoreEntitySet="Instructor">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Contact" ColumnName="Contact" />
-                <ScalarProperty Name="Cnic" ColumnName="Cnic" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Questions">
             <EntityTypeMapping TypeName="DB44Model.Question">
               <MappingFragment StoreEntitySet="Question">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
                 <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="DB44Model.Student">
-              <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Contact" ColumnName="Contact" />
-                <ScalarProperty Name="Cnic" ColumnName="Cnic" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -819,17 +985,6 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
                 <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
                 <ScalarProperty Name="CourseId" ColumnName="CourseId" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="DB44Model.Admin">
-              <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -851,6 +1006,14 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DB44Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
           <AssociationSetMapping Name="CorrectAnswer" TypeName="DB44Model.CorrectAnswer" StoreEntitySet="CorrectAnswer">
             <EndProperty Name="Answer">
               <ScalarProperty Name="Id" ColumnName="AnswerId" />
@@ -863,7 +1026,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
             <EndProperty Name="Course">
               <ScalarProperty Name="Id" ColumnName="CourseId" />
             </EndProperty>
-            <EndProperty Name="Instructor">
+            <EndProperty Name="AspNetUsers">
               <ScalarProperty Name="Id" ColumnName="InstructorId" />
             </EndProperty>
           </AssociationSetMapping>

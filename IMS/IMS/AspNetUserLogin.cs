@@ -12,15 +12,12 @@ namespace IMS
     using System;
     using System.Collections.Generic;
     
-    public partial class StudentFee
+    public partial class AspNetUserLogin
     {
-        public int Id { get; set; }
-        public int IsPaid { get; set; }
-        public Nullable<System.DateTime> PaymentDate { get; set; }
-        public int CourseId { get; set; }
-        public string StudentId { get; set; }
+        public string LoginProvider { get; set; }
+        public string ProviderKey { get; set; }
+        public string UserId { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Course Course { get; set; }
     }
 }

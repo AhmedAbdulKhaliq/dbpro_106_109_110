@@ -164,52 +164,70 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs">
-      <DependentUpon>DB44Entities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Announcement.cs">
-      <DependentUpon>DB44Entities.tt</DependentUpon>
+      <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Answer.cs">
-      <DependentUpon>DB44Entities.tt</DependentUpon>
+      <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Course.cs">
-      <DependentUpon>DB44Entities.tt</DependentUpon>
+      <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB44Entities.Context.cs">
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB44Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB44Entities.Context.tt</DependentUpon>
+      <DependentUpon>DB44Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB44Entities.cs">
+    <Compile Include="DB44Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB44Entities.tt</DependentUpon>
+      <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB44Entities.Designer.cs">
+    <Compile Include="DB44Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB44Entities.edmx</DependentUpon>
+      <DependentUpon>DB44Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="FinalResult.cs">
-      <DependentUpon>DB44Entities.tt</DependentUpon>
+      <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Instructor.cs">
-      <DependentUpon>DB44Entities.tt</DependentUpon>
+    <Compile Include="Migrations\201904252008315_tables-add.cs" />
+    <Compile Include="Migrations\201904252008315_tables-add.Designer.cs">
+      <DependentUpon>201904252008315_tables-add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904252340394_add-profile-data.cs" />
+    <Compile Include="Migrations\201904252340394_add-profile-data.Designer.cs">
+      <DependentUpon>201904252340394_add-profile-data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CourseModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -217,17 +235,14 @@
     <Compile Include="Models\StudentModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs">
-      <DependentUpon>DB44Entities.tt</DependentUpon>
+      <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="Student.cs">
-      <DependentUpon>DB44Entities.tt</DependentUpon>
-    </Compile>
     <Compile Include="StudentEnrollment.cs">
-      <DependentUpon>DB44Entities.tt</DependentUpon>
+      <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentFee.cs">
-      <DependentUpon>DB44Entities.tt</DependentUpon>
+      <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -279,15 +294,15 @@
     <Content Include="Content\js\superfish.min.js" />
     <Content Include="Content\js\vendor\bootstrap.min.js" />
     <Content Include="Content\js\vendor\jquery-2.2.4.min.js" />
-    <Content Include="DB44Entities.Context.tt">
+    <Content Include="DB44Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB44Entities.edmx</DependentUpon>
-      <LastGenOutput>DB44Entities.Context.cs</LastGenOutput>
+      <DependentUpon>DB44Model.edmx</DependentUpon>
+      <LastGenOutput>DB44Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB44Entities.tt">
+    <Content Include="DB44Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB44Entities.edmx</DependentUpon>
-      <LastGenOutput>DB44Entities.cs</LastGenOutput>
+      <DependentUpon>DB44Model.edmx</DependentUpon>
+      <LastGenOutput>DB44Model.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -407,12 +422,12 @@
     <Content Include="Content\scss\bootstrap\_utilities.scss" />
     <Content Include="Content\scss\bootstrap\_variables.scss" />
     <Content Include="Content\img\.DS_Store" />
-    <EntityDeploy Include="DB44Entities.edmx">
+    <EntityDeploy Include="DB44Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB44Entities.Designer.cs</LastGenOutput>
+      <LastGenOutput>DB44Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DB44Entities.edmx.diagram">
-      <DependentUpon>DB44Entities.edmx</DependentUpon>
+    <Content Include="DB44Model.edmx.diagram">
+      <DependentUpon>DB44Model.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -487,6 +502,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904252008315_tables-add.resx">
+      <DependentUpon>201904252008315_tables-add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904252340394_add-profile-data.resx">
+      <DependentUpon>201904252340394_add-profile-data.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

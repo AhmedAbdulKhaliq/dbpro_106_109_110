@@ -12,26 +12,18 @@ namespace IMS
     using System;
     using System.Collections.Generic;
     
-    public partial class Instructor
+    public partial class AspNetRole
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Instructor()
+        public AspNetRole()
         {
-            this.Courses = new HashSet<Course>();
+            this.AspNetUsers = new HashSet<AspNetUser>();
         }
     
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Contact { get; set; }
-        public string Cnic { get; set; }
-        public string City { get; set; }
-        public System.DateTime DOB { get; set; }
-        public System.DateTime RegistrationDate { get; set; }
-        public string Password { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

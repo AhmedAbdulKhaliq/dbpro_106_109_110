@@ -12,15 +12,11 @@ namespace IMS
     using System;
     using System.Collections.Generic;
     
-    public partial class StudentFee
+    public partial class C__MigrationHistory
     {
-        public int Id { get; set; }
-        public int IsPaid { get; set; }
-        public Nullable<System.DateTime> PaymentDate { get; set; }
-        public int CourseId { get; set; }
-        public string StudentId { get; set; }
-    
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Course Course { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

@@ -15,10 +15,10 @@ namespace IMS
     public partial class FinalResult
     {
         public int CourseId { get; set; }
-        public int StudentId { get; set; }
+        public string StudentId { get; set; }
         public int Marks { get; set; }
     
+        public virtual AspNetUser AspNetUser { get; set; }
         public virtual Course Course { get; set; }
-        public virtual Student Student { get; set; }
     }
 }

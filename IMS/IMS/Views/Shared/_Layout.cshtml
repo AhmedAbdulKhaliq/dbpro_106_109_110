@@ -1,4 +1,4 @@
-﻿@model IMS.Models.StudentModels.StudentRegisterModel
+﻿@model IMS.Models.RegisterViewModel
 
 <!DOCTYPE html>
 <html>
@@ -63,7 +63,8 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 search-course-right section-gap" >
-                    <form class="form-wrap" action="/Student/Register" style="padding-top:0em" method="post">
+                    <form class="form-wrap" action="/Account/Register" style="padding-top:0em" method="post">
+                        @Html.AntiForgeryToken()
                         @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Enter First Name" })
                         @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Enter Last Name" })
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email" })

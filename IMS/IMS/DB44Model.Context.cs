@@ -25,14 +25,16 @@ namespace IMS
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Announcement> Announcements { get; set; }
         public virtual DbSet<Answer> Answers { get; set; }
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
-        public virtual DbSet<Instructor> Instructors { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
-        public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<StudentFee> StudentFees { get; set; }
-        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<FinalResult> FinalResults { get; set; }
         public virtual DbSet<StudentEnrollment> StudentEnrollments { get; set; }
     }

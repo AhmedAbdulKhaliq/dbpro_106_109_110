@@ -48,17 +48,17 @@ namespace IMS.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult AddCourse(CourseModels.AddCourseModel item)
         {
             Course temp = new Course();
-
+            
             temp.Name = item.Name;
             temp.Fee = item.Fee;
             temp.Type = item.Type;
             temp.StartDate = item.StartDate;
             temp.EndDate = item.EndDate;
-            
             DB44Entities db = new DB44Entities();
             db.Courses.Add(temp);
             db.SaveChanges();
