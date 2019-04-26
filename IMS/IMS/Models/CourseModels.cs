@@ -14,7 +14,8 @@ namespace IMS.Models
             public int Fee { get; set; }
             public DateTime StartDate { get; set; }
             public DateTime EndDate { get; set; }
-            
+            public HttpPostedFileBase CourseImage { get; set; }
+
         }
     }
 }
