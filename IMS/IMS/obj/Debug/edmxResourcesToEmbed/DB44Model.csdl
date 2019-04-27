@@ -103,7 +103,7 @@
     <Property Name="ImagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Announcements" Relationship="Self.FK__Announcem__Cours__20C1E124" FromRole="Course" ToRole="Announcement" />
     <NavigationProperty Name="FinalResults" Relationship="Self.FK__FinalResu__Cours__267ABA7A" FromRole="Course" ToRole="FinalResult" />
-    <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Course__34C8D9D1" FromRole="Course" ToRole="Question" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Course__4F7CD00D" FromRole="Course" ToRole="Question" />
     <NavigationProperty Name="StudentEnrollments" Relationship="Self.FK__StudentEn__Cours__29572725" FromRole="Course" ToRole="StudentEnrollment" />
     <NavigationProperty Name="StudentFees" Relationship="Self.FK__StudentFe__Cours__2B3F6F97" FromRole="Course" ToRole="StudentFee" />
     <NavigationProperty Name="AspNetUsers" Relationship="Self.CourseInstructor" FromRole="Course" ToRole="AspNetUsers" />
@@ -116,7 +116,7 @@
     <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CourseId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Answers" Relationship="Self.FK__Answer__Question__21B6055D" FromRole="Question" ToRole="Answer" />
-    <NavigationProperty Name="Course" Relationship="Self.FK__Question__Course__34C8D9D1" FromRole="Question" ToRole="Course" />
+    <NavigationProperty Name="Course" Relationship="Self.FK__Question__Course__4F7CD00D" FromRole="Question" ToRole="Course" />
     <NavigationProperty Name="Answers1" Relationship="Self.CorrectAnswer" FromRole="Question" ToRole="Answer" />
   </EntityType>
   <EntityType Name="StudentFee">
@@ -262,7 +262,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Question__Course__34C8D9D1">
+  <Association Name="FK__Question__Course__4F7CD00D">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
     <End Role="Question" Type="Self.Question" Multiplicity="*" />
     <ReferentialConstraint>
@@ -359,7 +359,7 @@
       <End Role="Course" EntitySet="Courses" />
       <End Role="FinalResult" EntitySet="FinalResults" />
     </AssociationSet>
-    <AssociationSet Name="FK__Question__Course__34C8D9D1" Association="Self.FK__Question__Course__34C8D9D1">
+    <AssociationSet Name="FK__Question__Course__4F7CD00D" Association="Self.FK__Question__Course__4F7CD00D">
       <End Role="Course" EntitySet="Courses" />
       <End Role="Question" EntitySet="Questions" />
     </AssociationSet>

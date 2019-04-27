@@ -478,7 +478,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Annoucements.cshtml" />
     <Content Include="Views\Shared\_Layout_Admin.cshtml" />
-    <Content Include="Views\Admin\AddCourses.cshtml" />
+    <Content Include="Views\Admin\AddCourse.cshtml" />
     <Content Include="Views\Admin\manageCourses.cshtml" />
     <Content Include="Views\Admin\manageAnnoucements.cshtml" />
     <Content Include="Views\Admin\manageStudent.cshtml" />

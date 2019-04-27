@@ -39,7 +39,7 @@ namespace IMS.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddCourses()
+        public ActionResult AddCourse()
         {
             return View();
         }
@@ -67,23 +67,15 @@ namespace IMS.Controllers
             {
                 temp.Type = 1;
             }
-            
             temp.StartDate = item.StartDate;
             temp.EndDate = item.EndDate;
             string fileName = item.Name + Path.GetExtension(item.CourseImage.FileName);
-
-            //Set the Image File Path.
-            string filePath = "~/Content/img/" + fileName;
-            //
-            string file = model.Image.FileName;
-            string path = Server.MapPath(@"~/Content/ProductImages");
-            string fullPath = path + @"\" + file;
-            //Save the Image File in Folder.
-            item.CourseImage.SaveAs(Server.MapPath(filePath));
-            temp.ImagePath = filePath;
+            var path = Path.Combine(Server.MapPath("~/Content/img/"), fileName);
+            item.CourseImage.SaveAs(path);
+            temp.ImagePath = path;
             db.Courses.Add(temp);
             db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("AddCourse");
         }
         
         public ActionResult AddAnnouncement(AnnouncemntModel.AddAnnouncementModel item)

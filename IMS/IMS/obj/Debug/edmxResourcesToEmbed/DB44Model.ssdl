@@ -200,7 +200,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CorrectAn__Quest__300424B4">
+  <Association Name="FK__CorrectAn__Quest__4AB81AF0">
     <End Role="Question" Type="Self.Question" Multiplicity="1" />
     <End Role="CorrectAnswer" Type="Self.CorrectAnswer" Multiplicity="*" />
     <ReferentialConstraint>
@@ -268,7 +268,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Question__Course__34C8D9D1">
+  <Association Name="FK__Question__Course__4F7CD00D">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
     <End Role="Question" Type="Self.Question" Multiplicity="*" />
     <ReferentialConstraint>
@@ -438,7 +438,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       <End Role="Answer" EntitySet="Answer" />
       <End Role="CorrectAnswer" EntitySet="CorrectAnswer" />
     </AssociationSet>
-    <AssociationSet Name="FK__CorrectAn__Quest__300424B4" Association="Self.FK__CorrectAn__Quest__300424B4">
+    <AssociationSet Name="FK__CorrectAn__Quest__4AB81AF0" Association="Self.FK__CorrectAn__Quest__4AB81AF0">
       <End Role="Question" EntitySet="Question" />
       <End Role="CorrectAnswer" EntitySet="CorrectAnswer" />
     </AssociationSet>
@@ -458,7 +458,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="FinalResult" EntitySet="FinalResult" />
     </AssociationSet>
-    <AssociationSet Name="FK__Question__Course__34C8D9D1" Association="Self.FK__Question__Course__34C8D9D1">
+    <AssociationSet Name="FK__Question__Course__4F7CD00D" Association="Self.FK__Question__Course__4F7CD00D">
       <End Role="Course" EntitySet="Course" />
       <End Role="Question" EntitySet="Question" />
     </AssociationSet>
