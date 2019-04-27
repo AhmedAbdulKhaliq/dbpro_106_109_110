@@ -93,7 +93,8 @@ namespace IMS.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        
+
+
     }
 
     public class ResetPasswordViewModel

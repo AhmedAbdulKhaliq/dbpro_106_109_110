@@ -66,7 +66,6 @@ F:\dbpro_106_109_110\IMS\IMS\bin\Microsoft.Owin.Security.Twitter.xml
 F:\dbpro_106_109_110\IMS\IMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.dll
 F:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.pdb
-F:\dbpro_106_109_110\IMS\IMS\obj\Debug\IMS.csprojResolveAssemblyReference.cache
 E:\dbpro_106_109_110\IMS\IMS\bin\roslyn\csc.exe
 E:\dbpro_106_109_110\IMS\IMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 E:\dbpro_106_109_110\IMS\IMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
