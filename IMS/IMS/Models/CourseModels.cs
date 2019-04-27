@@ -26,5 +26,7 @@ namespace IMS.Models
             public HttpPostedFileBase CourseImage { get; set; }
 
         }
+
+
     }
 }

@@ -48,9 +48,12 @@ namespace IMS.Controllers
             return View();
         }
 
-        public ActionResult AddAnnoucement()
+        [HttpGet]
+        public ActionResult AddAnnouncement()
         {
-            return View();
+            AnnouncemtentModels.AddAnnouncementModel model = new AnnouncemtentModels.AddAnnouncementModel();
+            model.allCourses = db.Courses;
+            return View(model);
         }
 
         [HttpPost]
@@ -78,19 +81,20 @@ namespace IMS.Controllers
             return RedirectToAction("AddCourse");
         }
         
-        public ActionResult AddAnnouncement(AnnouncemntModel.AddAnnouncementModel item)
+        public ActionResult AddAnnouncement(AnnouncemtentModels.AddAnnouncementModel model)
         {
+            Course c = db.Courses.Single(x => x.Id == model.CourseId);
             Announcement temp = new Announcement();
 
-            temp.NewsText = item.NewsText;
-            temp.CourseId = item.CourseId;
+            temp.NewsText = model.News;
+            //temp.CourseId = model.CourseId;
+            temp.Course = c;
 
-
-            temp.AnnoucementDate = item.AnnouncementDate;
-            DB44Entities db = new DB44Entities();
+            temp.AnnoucementDate = model.AnnouncementDate;
+            //ds
             db.Announcements.Add(temp);
             db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("AddAnnouncement");
         }
     }
 }

@@ -230,7 +230,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AnnouncemntModel.cs" />
+    <Compile Include="Models\AnnouncemtentModels.cs" />
     <Compile Include="Models\CourseModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -487,7 +487,7 @@
     <Content Include="Views\Admin\InstructorCourses.cshtml" />
     <Content Include="Views\Home\Instructors.cshtml" />
     <Content Include="Views\Admin\AddInstructor.cshtml" />
-    <Content Include="Views\Admin\AddAnnoucement.cshtml" />
+    <Content Include="Views\Admin\AddAnnouncement.cshtml" />
     <Content Include="Views\Shared\_Layout_Student.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\CourseDetails.cshtml" />
