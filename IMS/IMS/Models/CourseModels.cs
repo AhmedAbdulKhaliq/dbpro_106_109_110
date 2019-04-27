@@ -22,7 +22,7 @@ namespace IMS.Models
             public DateTime StartDate { get; set; }
             public DateTime EndDate { get; set; }
 
-            [RegularExpression(@"([a - zA - Z0 - 9\s_\\.\-\(\):])+(.png|.jpg|.jpeg)$/i", ErrorMessage = "Select a valid image file.")]
+            //[RegularExpression(@"([a - zA - Z0 - 9\s_\\.\-\(\):])+(.png|.jpg|.jpeg)$/i", ErrorMessage = "Select a valid image file.")]
             public HttpPostedFileBase CourseImage { get; set; }
 
         }

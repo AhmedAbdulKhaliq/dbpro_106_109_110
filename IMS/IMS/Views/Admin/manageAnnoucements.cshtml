@@ -1,4 +1,5 @@
-﻿@{
+﻿@model  IEnumerable<Announcement>
+@{
     ViewBag.Title = "manageAnnoucements";
     Layout = "~/Views/Shared/_Layout_Admin.cshtml";
 }
@@ -8,18 +9,32 @@
             <th>AnnoucementID</th>
             <th>NewsText</th>
             <th>AnnoucementDate</th>
-            <th>CourseName</th>
+            <th>CourseID</th>
             <th>Update</th>
             <th>Delete</th>
         </tr>
-        <tr>
-            <td>09076</td>
-            <td>Tomorrow DBMS lecture is OFF!</td>
-            <td>4/21/2019</td>
-            <td>DataBase Management System</td>
-            <th>@Html.ActionLink("Edit", "Edit")</th>
-            <th>@Html.ActionLink("Delete", "Delete")</th>
-        </tr>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnnoucementDate)
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseId)
+        </td>
+        <td>
+            @Html.ActionLink("Update", "Update")
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+}
     </table>
 </div>
 

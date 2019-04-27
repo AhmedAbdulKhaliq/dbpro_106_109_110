@@ -13,13 +13,15 @@ namespace IMS.Controllers
         // GET: Admin
         public ActionResult manageCourses()
         {
-            return View();
+            List<Course> AllCourses = db.Courses.ToList();
+            return View(AllCourses);
         }
         //public List<string> cmbtempstudentList = new List<string>();
         
         public ActionResult manageAnnoucements()
         {
-            return View();
+            List<Announcement> AllAnnoucement = db.Announcements.ToList();
+            return View(AllAnnoucement);
         }
         public ActionResult manageStudent()
         {
