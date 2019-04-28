@@ -18,5 +18,9 @@ namespace IMS.Models
 
             public int CourseId { get; set; }
         }
+        public class ShowAnnoucementModel : RegisterViewModel
+        {
+            public List<Announcement> allAnnoucement { get; set; }
+        }
     }
 }

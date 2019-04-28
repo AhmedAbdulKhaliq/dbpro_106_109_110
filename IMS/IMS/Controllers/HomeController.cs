@@ -19,7 +19,9 @@ namespace IMS.Controllers
 
         public ActionResult Annoucements()
         {
-            return View();
+            AnnouncemtentModels.ShowAnnoucementModel model = new AnnouncemtentModels.ShowAnnoucementModel();
+            model.allAnnoucement = db.Announcements.ToList();
+            return View(model);
         }
 
         public ActionResult Instructors()
