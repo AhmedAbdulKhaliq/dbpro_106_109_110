@@ -62,7 +62,8 @@ namespace IMS.Controllers
         }
         public ActionResult ManageInstructors()
         {
-            return View();
+            
+            return View(getInstructors());
         }
         public ActionResult Courses()
         {
@@ -70,7 +71,8 @@ namespace IMS.Controllers
         }
         public ActionResult InstructorCourses()
         {
-            return View();
+            List<Course> AllCourses = db.Courses.ToList();
+            return View(AllCourses);
         }
 
         [HttpGet]
@@ -131,7 +133,29 @@ namespace IMS.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult AssignCourse(string Id)
+        {
+            InstructorModels.AssignCourse model = new InstructorModels.AssignCourse();
+            List<Course> courses = db.Courses.ToList();
+            foreach(CourseInstructor c in db.CourseInstructors)
+            {
+                courses.Remove(c.Course);
+            }
+            model.allCourses = courses;
+            return View(model);
+        }
+
         [HttpPost]
+        public ActionResult AssignCourse(string Id, InstructorModels.AssignCourse model)
+        {
+            CourseInstructor assignment = new CourseInstructor();
+            assignment.Course = db.Courses.Single(c => c.Id == model.CourseId);
+            assignment.AspNetUser = db.AspNetUsers.Single(c => c.Id == Id);
+            db.CourseInstructors.Add(assignment);
+            db.SaveChanges();
+            return RedirectToAction("ManageInstructors");
+        }
         public ActionResult AddCourse(CourseModels.AddCourseModel item)
         {
             Course temp = new Course();
@@ -236,6 +260,19 @@ namespace IMS.Controllers
             {
                 ModelState.AddModelError("", error);
             }
+        }
+
+        private List<AspNetUser> getInstructors()
+        {
+            List<AspNetUser> instructors = new List<AspNetUser>();
+            foreach (AspNetUser u in db.AspNetUsers.ToList())
+            {
+                if (UserManager.IsInRole(u.Id, "Instructor"))
+                {
+                    instructors.Add(u);
+                }
+            }
+            return instructors;
         }
     }
 }

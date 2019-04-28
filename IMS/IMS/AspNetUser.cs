@@ -19,11 +19,11 @@ namespace IMS
         {
             this.AspNetUserClaims = new HashSet<AspNetUserClaim>();
             this.AspNetUserLogins = new HashSet<AspNetUserLogin>();
+            this.CourseInstructors = new HashSet<CourseInstructor>();
             this.FinalResults = new HashSet<FinalResult>();
             this.StudentEnrollments = new HashSet<StudentEnrollment>();
             this.StudentFees = new HashSet<StudentFee>();
             this.AspNetRoles = new HashSet<AspNetRole>();
-            this.Courses = new HashSet<Course>();
         }
     
         public string Id { get; set; }
@@ -51,6 +51,8 @@ namespace IMS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CourseInstructor> CourseInstructors { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FinalResult> FinalResults { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentEnrollment> StudentEnrollments { get; set; }
@@ -58,7 +60,5 @@ namespace IMS
         public virtual ICollection<StudentFee> StudentFees { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course> Courses { get; set; }
     }
 }

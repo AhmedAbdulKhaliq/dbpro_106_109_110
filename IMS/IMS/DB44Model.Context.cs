@@ -32,7 +32,9 @@ namespace IMS
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<CorrectAnswer> CorrectAnswers { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<CourseInstructor> CourseInstructors { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<StudentFee> StudentFees { get; set; }
         public virtual DbSet<FinalResult> FinalResults { get; set; }

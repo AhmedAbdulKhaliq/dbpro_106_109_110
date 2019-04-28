@@ -193,7 +193,13 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\InstructorController.cs" />
+    <Compile Include="CorrectAnswer.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Course.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseInstructor.cs">
       <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
     <Compile Include="C__MigrationHistory.cs">
@@ -467,7 +473,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Admin\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
@@ -485,15 +491,15 @@
     <Content Include="Views\Admin\ManageStudent.cshtml" />
     <Content Include="Views\Admin\ManageInstructors.cshtml" />
     <Content Include="Views\Admin\Courses.cshtml" />
-    <Content Include="Views\Admin\InstructorCourses.cshtml" />
+    <Content Include="Views\Admin\AssignCourse.cshtml" />
     <Content Include="Views\Home\Instructors.cshtml" />
     <Content Include="Views\Admin\AddInstructor.cshtml" />
     <Content Include="Views\Admin\AddAnnouncement.cshtml" />
     <Content Include="Views\Shared\_Layout_Student.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\CourseDetails.cshtml" />
-    <Content Include="Views\Teacher\AddQuestions.cshtml" />
     <Content Include="Views\Admin\UpdateCourse.cshtml" />
+    <Content Include="Views\Instructor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

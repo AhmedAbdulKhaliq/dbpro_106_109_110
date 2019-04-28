@@ -47,5 +47,15 @@ namespace IMS.Models
             [Display(Name = "Password")]
             public string Password { get; set; }
         }
+        public class AssignCourse
+        {
+            [Required]
+            public string InstructorId { get; set; }
+            public int CourseId { get; set; }
+
+            public IEnumerable<Course> allCourses { get; set; }
+
+            
+        }
     }
 }

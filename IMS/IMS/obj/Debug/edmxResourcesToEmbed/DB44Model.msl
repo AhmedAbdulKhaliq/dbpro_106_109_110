@@ -82,6 +82,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CorrectAnswers">
+      <EntityTypeMapping TypeName="DB44Model.CorrectAnswer">
+        <MappingFragment StoreEntitySet="CorrectAnswer">
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Courses">
       <EntityTypeMapping TypeName="DB44Model.Course">
         <MappingFragment StoreEntitySet="Course">
@@ -92,6 +101,15 @@
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
           <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseInstructors">
+      <EntityTypeMapping TypeName="DB44Model.CourseInstructor">
+        <MappingFragment StoreEntitySet="CourseInstructor">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -139,22 +157,6 @@
       </EndProperty>
       <EndProperty Name="AspNetUsers">
         <ScalarProperty Name="Id" ColumnName="UserId" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="CorrectAnswer" TypeName="DB44Model.CorrectAnswer" StoreEntitySet="CorrectAnswer">
-      <EndProperty Name="Answer">
-        <ScalarProperty Name="Id" ColumnName="AnswerId" />
-      </EndProperty>
-      <EndProperty Name="Question">
-        <ScalarProperty Name="Id" ColumnName="QuestionId" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="CourseInstructor" TypeName="DB44Model.CourseInstructor" StoreEntitySet="CourseInstructor">
-      <EndProperty Name="Course">
-        <ScalarProperty Name="Id" ColumnName="CourseId" />
-      </EndProperty>
-      <EndProperty Name="AspNetUsers">
-        <ScalarProperty Name="Id" ColumnName="InstructorId" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

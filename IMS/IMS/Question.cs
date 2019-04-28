@@ -18,7 +18,7 @@ namespace IMS
         public Question()
         {
             this.Answers = new HashSet<Answer>();
-            this.Answers1 = new HashSet<Answer>();
+            this.CorrectAnswers = new HashSet<CorrectAnswer>();
         }
     
         public int Id { get; set; }
@@ -27,8 +27,8 @@ namespace IMS
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Answer> Answers { get; set; }
-        public virtual Course Course { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Answer> Answers1 { get; set; }
+        public virtual ICollection<CorrectAnswer> CorrectAnswers { get; set; }
+        public virtual Course Course { get; set; }
     }
 }

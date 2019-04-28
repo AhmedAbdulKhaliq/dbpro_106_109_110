@@ -1,0 +1,17 @@
+﻿@model IMS.Models.InstructorModels.AssignCourse
+@{
+    ViewBag.Title = "InstructorCourses";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+<div class="col-lg-6 col-md-6 ">
+    @using (Html.BeginForm("AssignCourse", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <hr />
+        
+        @Html.DropDownListFor(m => m.CourseId, new SelectList(Model.allCourses, "Id", "Name"), "Select Course", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CourseId)
+        <br />
+        
+        <button class="primary-btn text-uppercase">Assign Course</button>
+    }
+</div>

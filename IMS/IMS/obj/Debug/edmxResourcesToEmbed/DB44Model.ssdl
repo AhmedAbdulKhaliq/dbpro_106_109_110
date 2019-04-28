@@ -85,15 +85,13 @@
     <Property Name="DOB" Type="datetime" Nullable="false" />
     <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB44.dbo.CorrectAnswer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="CorrectAnswer">
     <Key>
-      <PropertyRef Name="QuestionId" />
-      <PropertyRef Name="AnswerId" />
+      <PropertyRef Name="Id" />
     </Key>
     <Property Name="QuestionId" Type="int" Nullable="false" />
     <Property Name="AnswerId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="Course">
     <Key>
@@ -107,15 +105,13 @@ warning 6002: The table/view 'DB44.dbo.CorrectAnswer' does not have a primary ke
     <Property Name="EndDate" Type="date" Nullable="false" />
     <Property Name="ImagePath" Type="varchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB44.dbo.CourseInstructor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="CourseInstructor">
     <Key>
-      <PropertyRef Name="CourseId" />
-      <PropertyRef Name="InstructorId" />
+      <PropertyRef Name="Id" />
     </Key>
     <Property Name="CourseId" Type="int" Nullable="false" />
     <Property Name="InstructorId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -200,7 +196,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CorrectAn__Quest__4AB81AF0">
+  <Association Name="FK__CorrectAn__Quest__300424B4">
     <End Role="Question" Type="Self.Question" Multiplicity="1" />
     <End Role="CorrectAnswer" Type="Self.CorrectAnswer" Multiplicity="*" />
     <ReferentialConstraint>
@@ -268,7 +264,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Question__Course__4F7CD00D">
+  <Association Name="FK__Question__Course__34C8D9D1">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
     <End Role="Question" Type="Self.Question" Multiplicity="*" />
     <ReferentialConstraint>
@@ -397,21 +393,11 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CorrectAnswer" EntityType="Self.CorrectAnswer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseInstructor" EntityType="Self.CourseInstructor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StudentFee" EntityType="Self.StudentFee" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="CorrectAnswer" EntityType="Self.CorrectAnswer" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [CorrectAnswer].[QuestionId] AS [QuestionId], 
-    [CorrectAnswer].[AnswerId] AS [AnswerId]
-    FROM [dbo].[CorrectAnswer] AS [CorrectAnswer]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="CourseInstructor" EntityType="Self.CourseInstructor" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [CourseInstructor].[CourseId] AS [CourseId], 
-    [CourseInstructor].[InstructorId] AS [InstructorId]
-    FROM [dbo].[CourseInstructor] AS [CourseInstructor]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="FinalResult" EntityType="Self.FinalResult" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [FinalResult].[CourseId] AS [CourseId], 
@@ -438,7 +424,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       <End Role="Answer" EntitySet="Answer" />
       <End Role="CorrectAnswer" EntitySet="CorrectAnswer" />
     </AssociationSet>
-    <AssociationSet Name="FK__CorrectAn__Quest__4AB81AF0" Association="Self.FK__CorrectAn__Quest__4AB81AF0">
+    <AssociationSet Name="FK__CorrectAn__Quest__300424B4" Association="Self.FK__CorrectAn__Quest__300424B4">
       <End Role="Question" EntitySet="Question" />
       <End Role="CorrectAnswer" EntitySet="CorrectAnswer" />
     </AssociationSet>
@@ -458,7 +444,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="FinalResult" EntitySet="FinalResult" />
     </AssociationSet>
-    <AssociationSet Name="FK__Question__Course__4F7CD00D" Association="Self.FK__Question__Course__4F7CD00D">
+    <AssociationSet Name="FK__Question__Course__34C8D9D1" Association="Self.FK__Question__Course__34C8D9D1">
       <End Role="Course" EntitySet="Course" />
       <End Role="Question" EntitySet="Question" />
     </AssociationSet>
