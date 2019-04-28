@@ -14,11 +14,10 @@ namespace IMS
     
     public partial class CorrectAnswer
     {
+        public string AnswerText { get; set; }
         public int QuestionId { get; set; }
-        public int AnswerId { get; set; }
         public int Id { get; set; }
     
-        public virtual Answer Answer { get; set; }
         public virtual Question Question { get; set; }
     }
 }

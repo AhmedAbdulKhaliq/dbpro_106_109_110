@@ -1,20 +1,36 @@
 ﻿@model IMS.Models.InstructorModels.AddQuestionsModel
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout_Student.cshtml";
+    Layout = "~/Views/Shared/_Layout_Instructor.cshtml";
 }
 
 <h2>AddQuestions</h2>
 <div class="col-lg-6 col-md-6 ">
-    <form class="form-wrap" action="/Admin/AddAnnouncement" style="padding-top:0em" method="post">
-
-        @Html.TextBoxFor(m => m.QuestionText, new { @class = "form-control", placeholder = "Enter Name" })
-
-        <select>
-            <option> </option>
-        </select>
+    <form class="form-wrap" action="/Instructor/Index" style="padding-top:0em" method="post" enctype="multipart/form-data">
+        <hr />
+        @Html.DropDownListFor(m => m.CourseId, new SelectList(Model.InstructorCourses, "Id", "Name"), "Select Course", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CourseId)
         <br />
-        <button class="primary-btn text-uppercase">Add Announcement</button>
+        @Html.LabelFor(m => m.QuestionText)
+        @Html.TextBoxFor(m => m.QuestionText, new { @class = "form-control", placeholder = "Enter Question" })
+        @Html.ValidationMessageFor(m => m.QuestionText)
+        <br />
+        @Html.LabelFor(m => m.Answer1)
+        @Html.TextBoxFor(m => m.Answer1, new { @class = "form-control", placeholder = "Enter First Option" })
+        @Html.ValidationMessageFor(m => m.Answer1)
+        <br />
+        @Html.LabelFor(m => m.Answer2)
+        @Html.TextBoxFor(m => m.Answer2, new { @class = "form-control", placeholder = "Enter Second Option" })
+        @Html.ValidationMessageFor(m => m.Answer3)
+        <br />
+        @Html.LabelFor(m => m.Answer3)
+        @Html.TextBoxFor(m => m.Answer3, new { @class = "form-control", placeholder = "Enter Third Option" })
+        @Html.ValidationMessageFor(m => m.Answer3)
+        <br />
+        @Html.LabelFor(m => m.CorrectAnswer)
+        @Html.TextBoxFor(m => m.CorrectAnswer, new { @class = "form-control", placeholder = "Enter Correct Answer" })
+        @Html.ValidationMessageFor(m => m.QuestionText)
+        <br />
+        <button class="primary-btn text-uppercase">Add Question</button>
     </form>
 </div>
-

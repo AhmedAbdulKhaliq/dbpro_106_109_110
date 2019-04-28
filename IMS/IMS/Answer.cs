@@ -14,18 +14,10 @@ namespace IMS
     
     public partial class Answer
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Answer()
-        {
-            this.CorrectAnswers = new HashSet<CorrectAnswer>();
-        }
-    
         public int Id { get; set; }
         public string AnswerText { get; set; }
         public int QuestionId { get; set; }
     
         public virtual Question Question { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CorrectAnswer> CorrectAnswers { get; set; }
     }
 }

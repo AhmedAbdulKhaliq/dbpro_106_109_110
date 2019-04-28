@@ -28,7 +28,6 @@
     <Property Name="AnswerText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="QuestionId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Question" Relationship="Self.FK__Answer__Question__21B6055D" FromRole="Answer" ToRole="Question" />
-    <NavigationProperty Name="CorrectAnswers" Relationship="Self.FK__CorrectAn__Answe__22AA2996" FromRole="Answer" ToRole="CorrectAnswer" />
   </EntityType>
   <EntityType Name="AspNetRole">
     <Key>
@@ -94,10 +93,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
+    <Property Name="AnswerText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="QuestionId" Type="Int32" Nullable="false" />
-    <Property Name="AnswerId" Type="Int32" Nullable="false" />
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <NavigationProperty Name="Answer" Relationship="Self.FK__CorrectAn__Answe__22AA2996" FromRole="CorrectAnswer" ToRole="Answer" />
     <NavigationProperty Name="Question" Relationship="Self.FK__CorrectAn__Quest__300424B4" FromRole="CorrectAnswer" ToRole="Question" />
   </EntityType>
   <EntityType Name="Course">
@@ -199,20 +197,6 @@
       </Principal>
       <Dependent Role="Answer">
         <PropertyRef Name="QuestionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__CorrectAn__Answe__22AA2996">
-    <End Role="Answer" Type="Self.Answer" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="CorrectAnswer" Type="Self.CorrectAnswer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Answer">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CorrectAnswer">
-        <PropertyRef Name="AnswerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -402,10 +386,6 @@
     <AssociationSet Name="FK__Answer__Question__21B6055D" Association="Self.FK__Answer__Question__21B6055D">
       <End Role="Question" EntitySet="Questions" />
       <End Role="Answer" EntitySet="Answers" />
-    </AssociationSet>
-    <AssociationSet Name="FK__CorrectAn__Answe__22AA2996" Association="Self.FK__CorrectAn__Answe__22AA2996">
-      <End Role="Answer" EntitySet="Answers" />
-      <End Role="CorrectAnswer" EntitySet="CorrectAnswers" />
     </AssociationSet>
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />

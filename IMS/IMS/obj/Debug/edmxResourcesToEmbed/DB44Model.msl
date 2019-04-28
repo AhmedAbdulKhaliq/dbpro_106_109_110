@@ -85,8 +85,8 @@
     <EntitySetMapping Name="CorrectAnswers">
       <EntityTypeMapping TypeName="DB44Model.CorrectAnswer">
         <MappingFragment StoreEntitySet="CorrectAnswer">
+          <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
           <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
-          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

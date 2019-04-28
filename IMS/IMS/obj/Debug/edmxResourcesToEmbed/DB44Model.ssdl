@@ -89,8 +89,8 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
+    <Property Name="AnswerText" Type="text" Nullable="false" />
     <Property Name="QuestionId" Type="int" Nullable="false" />
-    <Property Name="AnswerId" Type="int" Nullable="false" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="Course">
@@ -179,20 +179,6 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       </Principal>
       <Dependent Role="Answer">
         <PropertyRef Name="QuestionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__CorrectAn__Answe__22AA2996">
-    <End Role="Answer" Type="Self.Answer" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="CorrectAnswer" Type="Self.CorrectAnswer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Answer">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CorrectAnswer">
-        <PropertyRef Name="AnswerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -419,10 +405,6 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
     <AssociationSet Name="FK__Answer__Question__21B6055D" Association="Self.FK__Answer__Question__21B6055D">
       <End Role="Question" EntitySet="Question" />
       <End Role="Answer" EntitySet="Answer" />
-    </AssociationSet>
-    <AssociationSet Name="FK__CorrectAn__Answe__22AA2996" Association="Self.FK__CorrectAn__Answe__22AA2996">
-      <End Role="Answer" EntitySet="Answer" />
-      <End Role="CorrectAnswer" EntitySet="CorrectAnswer" />
     </AssociationSet>
     <AssociationSet Name="FK__CorrectAn__Quest__300424B4" Association="Self.FK__CorrectAn__Quest__300424B4">
       <End Role="Question" EntitySet="Question" />
