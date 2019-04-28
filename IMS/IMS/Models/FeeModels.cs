@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
-
 
 namespace IMS.Models
 {
     public class FeeModels
     {
-        public class AddFeeModel
+        public class FeeStatus
         {
-            [Required]
             public bool isPaid { get; set; }
 
             public DateTime PaymentDate { get; set; }
-            public IEnumerable<Course> allCourses { get; set; }
+
+            public int StudentId { get; set; }
+            public List<AspNetUser> AllStudents = new List<AspNetUser>();
+
 
             public int CourseId { get; set; }
-            public int StudentId { get; set; }
-        }
+            public List<Course> StudenstCourses = new List<Course>();
 
+        }
     }
 }

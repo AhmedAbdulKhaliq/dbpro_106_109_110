@@ -1,34 +1,8 @@
-﻿@{
+﻿@model IMS.Models.FeeModels.FeeStatus
+@{
     ViewBag.Title = "manageStudent";
     Layout = "~/Views/Shared/_Layout_Admin.cshtml";
 }
-<div>
-    <table style="width:100%">
-        <tr>
-            <th>SudentID</th>
-            <th>FirstName</th>
-            <th>LastaName</th>
-            <th>Email</th>
-            <th>Contact</th>
-            <th>Cnic</th>
-            <th>City</th>
-            <th>DateOfBirth</th>
-            <th>RegistrationDate</th>
-            <th>Delete</th>
-            <th>ViewCourses</th>
-        </tr>
-        <tr>
-            <td>7860</td>
-            <td>Ahmed</td>
-            <td>Awais</td>
-            <td>ahmedaksdaddou@yahoo.com</td>
-            <td>0423090978601</td>
-            <td>35021-78953232-1</td>
-            <td>Lahore</td>
-            <td>4/21/2019</td>
-            <td>4/21/2019</td>
-            <th>@Html.ActionLink("Delete", "Delete")</th>
-            <th>@Html.ActionLink("Courses", "Courses", "Admin")</th>
-        </tr>
-    </table>
-</div>
+
+
+
