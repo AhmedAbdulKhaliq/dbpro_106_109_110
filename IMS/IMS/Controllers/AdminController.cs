@@ -74,13 +74,13 @@ namespace IMS.Controllers
             }
             temp.StartDate = item.StartDate;
             temp.EndDate = item.EndDate;
-            string fileName = Path.GetExtension(item.CourseImage.FileName);
+            string fileName = DateTime.Now.Ticks.ToString() + Path.GetExtension(item.CourseImage.FileName);
 
             //Set the Image File Path.
-            string filePath = Path.Combine(Server.MapPath("~/Content/img/"), fileName);
+            string filePath = "/Content/img/" + fileName;
 
             //Save the Image File in Folder.
-            item.CourseImage.SaveAs(filePath);
+            item.CourseImage.SaveAs(Server.MapPath(filePath));
             temp.ImagePath = filePath;
             db.Courses.Add(temp);
             db.SaveChanges();

@@ -13,7 +13,7 @@ namespace IMS.Controllers
         public ActionResult Index()
         {
             CourseModels.ShowCoursesModel model = new CourseModels.ShowCoursesModel();
-            model.allCourses = db.Courses;
+            model.allCourses = db.Courses.ToList();
             return View(model);
         }
 

@@ -9,10 +9,13 @@ namespace IMS.Controllers
 {
     public class StudentController : Controller
     {
+        DB44Entities db = new DB44Entities();
         // GET: Student
         public ActionResult Index()
         {
-            return View();
+            StudentModels.CoursesViewModel model = new StudentModels.CoursesViewModel();
+            model.allCourses = db.Courses.ToList();
+            return View(model);
         }
 
         public ActionResult CourseDetails()

@@ -29,7 +29,7 @@ namespace IMS.Models
 
         public class ShowCoursesModel : RegisterViewModel
         {
-            public IEnumerable<Course> allCourses { get; set; }
+            public List<Course> allCourses { get; set; }
         }
 
 

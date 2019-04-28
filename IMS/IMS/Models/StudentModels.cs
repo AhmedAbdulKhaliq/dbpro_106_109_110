@@ -19,5 +19,10 @@ namespace IMS.Models
             public System.DateTime RegistrationDate { get; set; }
             public string Password { get; set; }
         }
+
+        public class CoursesViewModel
+        {
+            public List<Course> allCourses { get; set; }
+        }
     }
 }
