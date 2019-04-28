@@ -23,6 +23,12 @@ namespace IMS.Controllers
             return View();
         }
 
+        public ActionResult AttemptFinalQuiz()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         public ActionResult Register(StudentModels.StudentRegisterModel item)
         {
