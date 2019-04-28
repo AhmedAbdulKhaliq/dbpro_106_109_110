@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace IMS.Controllers
 {
-    public class TeacherController : Controller
+    public class InstructorController : Controller
     {
         // GET: Teacher
         public ActionResult Index()

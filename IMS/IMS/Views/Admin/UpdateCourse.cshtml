@@ -1,0 +1,42 @@
+﻿@model IMS.Models.CourseModels.AddCourseModel
+@{
+    ViewBag.Title = "AddCourse";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+
+<div class="col-lg-6 col-md-6 ">
+    @using (Html.BeginForm("UpdateCourse", "Admin",  FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <fieldset>
+            <hr />
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Enter Name" })
+            @Html.ValidationMessageFor(m => m.Name)
+            <br />
+            @Html.LabelFor(m => m.Fee)
+            @Html.TextBoxFor(m => m.Fee, new { @class = "form-control", placeholder = "Enter Fee" })
+            @Html.ValidationMessageFor(m => m.Fee)
+            <br />
+            @Html.LabelFor(m => m.StartDate)
+            @Html.TextBoxFor(m => m.StartDate, new { @type = "date", @class = "form-control", placeholder = "Enter Start Date", @value = DateTime.Now.Date })
+            <br />
+            @Html.LabelFor(m => m.EndDate)
+            @Html.TextBoxFor(m => m.EndDate, new { @type = "date", @class = "form-control", placeholder = "Enter End Date", @value = DateTime.Now.Date })
+            <br />
+            <label>Add Picture</label>
+            @Html.TextBoxFor(m => m.CourseImage, new { @type = "file" })
+            @Html.ValidationMessageFor(m => m.CourseImage)
+            <br />
+            @Html.CheckBoxFor(m => m.isShort, new { @checked = "checked" }) Short Course
+        </fieldset>
+        <hr />
+        <button class="primary-btn text-uppercase">Update Course</button>
+    }
+    <div>
+        @Html.ActionLink("Back to list", "ManageCourses", "Admin")
+    </div>
+</div>
+
+

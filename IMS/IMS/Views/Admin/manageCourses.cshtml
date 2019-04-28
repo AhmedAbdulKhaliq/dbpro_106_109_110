@@ -25,21 +25,30 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Type)
+            @if(item.Type == 0)
+            {
+                @("Short")
+            }
+            else
+            {
+                @("Full")
+            }
+
         <td>
             @Html.DisplayFor(modelItem => item.Fee)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
+            @(item.StartDate.Day.ToString() + '/' +item.StartDate.Month.ToString() + '/' + item.StartDate.Year.ToString())
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
+           @(item.EndDate.Day.ToString() + '/' + item.EndDate.Month.ToString() + '/' + item.EndDate.Year.ToString())
         </td>
         <td>
-            @Html.ActionLink("Update", "Update")
+            @Html.ActionLink("Update", "UpdateCourse",  new { Id = item.Id })
         </td>
         <td>
-            @Html.ActionLink("Delete", "Delete")
+            <a href="/Admin/DeleteCourse/@item.Id" onclick="$.post(this.href); return false;">Delete</a>
+
         </td>
     </tr>
 }

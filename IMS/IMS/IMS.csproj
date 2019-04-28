@@ -192,7 +192,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
-    <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="Controllers\InstructorController.cs" />
     <Compile Include="Course.cs">
       <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
@@ -236,7 +236,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\StudentModels.cs" />
-    <Compile Include="Models\TeacherModels.cs" />
+    <Compile Include="Models\InstructorModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs">
       <DependentUpon>DB44Model.tt</DependentUpon>
@@ -480,10 +480,10 @@
     <Content Include="Views\Home\Annoucements.cshtml" />
     <Content Include="Views\Shared\_Layout_Admin.cshtml" />
     <Content Include="Views\Admin\AddCourse.cshtml" />
-    <Content Include="Views\Admin\manageCourses.cshtml" />
-    <Content Include="Views\Admin\manageAnnoucements.cshtml" />
-    <Content Include="Views\Admin\manageStudent.cshtml" />
-    <Content Include="Views\Admin\manageInstructors.cshtml" />
+    <Content Include="Views\Admin\ManageCourses.cshtml" />
+    <Content Include="Views\Admin\ManageAnnoucements.cshtml" />
+    <Content Include="Views\Admin\ManageStudent.cshtml" />
+    <Content Include="Views\Admin\ManageInstructors.cshtml" />
     <Content Include="Views\Admin\Courses.cshtml" />
     <Content Include="Views\Admin\InstructorCourses.cshtml" />
     <Content Include="Views\Home\Instructors.cshtml" />
@@ -493,6 +493,7 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\CourseDetails.cshtml" />
     <Content Include="Views\Teacher\AddQuestions.cshtml" />
+    <Content Include="Views\Admin\UpdateCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
