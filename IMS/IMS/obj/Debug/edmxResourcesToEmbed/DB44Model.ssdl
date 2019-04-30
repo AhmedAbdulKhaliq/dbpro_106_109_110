@@ -133,8 +133,6 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
     <Property Name="QuestionText" Type="text" Nullable="false" />
     <Property Name="CourseId" Type="int" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StudentEnrollment">
     <Key>
       <PropertyRef Name="CourseId" />
@@ -250,7 +248,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Question__Course__5DCAEF64">
+  <Association Name="FK__Question__Course__34C8D9D1">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
     <End Role="Question" Type="Self.Question" Multiplicity="*" />
     <ReferentialConstraint>
@@ -383,6 +381,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
     <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CourseInstructor" EntityType="Self.CourseInstructor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentEnrollment" EntityType="Self.StudentEnrollment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StudentFee" EntityType="Self.StudentFee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FinalResult" EntityType="Self.FinalResult" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -390,13 +389,6 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
     [FinalResult].[StudentId] AS [StudentId], 
     [FinalResult].[Marks] AS [Marks]
     FROM [dbo].[FinalResult] AS [FinalResult]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="StudentEnrollment" EntityType="Self.StudentEnrollment" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [StudentEnrollment].[DateOfEnrollment] AS [DateOfEnrollment], 
-    [StudentEnrollment].[CourseId] AS [CourseId], 
-    [StudentEnrollment].[StudentId] AS [StudentId]
-    FROM [dbo].[StudentEnrollment] AS [StudentEnrollment]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__Announcem__Cours__20C1E124" Association="Self.FK__Announcem__Cours__20C1E124">
       <End Role="Course" EntitySet="Course" />
@@ -426,7 +418,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="FinalResult" EntitySet="FinalResult" />
     </AssociationSet>
-    <AssociationSet Name="FK__Question__Course__5DCAEF64" Association="Self.FK__Question__Course__5DCAEF64">
+    <AssociationSet Name="FK__Question__Course__34C8D9D1" Association="Self.FK__Question__Course__34C8D9D1">
       <End Role="Course" EntitySet="Course" />
       <End Role="Question" EntitySet="Question" />
     </AssociationSet>

@@ -3,7 +3,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout_Student.cshtml";
 }
-
 <!-- Start popular-courses Area -->
 <section class="popular-courses-area section-gap courses-page">
     <div class="container">
@@ -33,14 +32,17 @@
                             </div>
                         </div>
                         <div class="details">
-                            <a href="course-details.html">
+                            @{
+                                string address = "/Student/EnrollCourse/" + Model.allCourses[i].Id;
+                            }
+                            <a href=@address>
                                 <h4>
                                     @Model.allCourses[i].Name
                                 </h4>
                             </a>
                         </div>
                     </div>
-                }
+                                }
                 @if (Model.allCourses.ElementAtOrDefault(i + 1) != null)
                 {
 
@@ -56,15 +58,18 @@
                             </div>
                         </div>
                         <div class="details">
-                            <a href="course-details.html">
+                            @{
+                                string address1 = "/Student/EnrollCourse/" + Model.allCourses[i + 1].Id;
+                            }
+                            <a href=@address1>
                                 <h4>
                                     @Model.allCourses[i + 1].Name
                                 </h4>
                             </a>
                         </div>
                     </div>
-                }
-                 @if (Model.allCourses.ElementAtOrDefault(i + 2) != null)
+                                }
+                @if (Model.allCourses.ElementAtOrDefault(i + 2) != null)
                 {
 
                     <div class="single-popular-carusel col-lg-3 col-md-6">
@@ -79,15 +84,19 @@
                             </div>
                         </div>
                         <div class="details">
-                            <a href="course-details.html">
+                            @{
+                                string address2 = "/Student/EnrollCourse/" + Model.allCourses[i + 2].Id;
+                            }
+                            <a href=@address2>
+                                ">
                                 <h4>
                                     @Model.allCourses[i + 2].Name
                                 </h4>
                             </a>
                         </div>
                     </div>
-                 }
-                 @if (Model.allCourses.ElementAtOrDefault(i + 3) != null)
+                                }
+                @if (Model.allCourses.ElementAtOrDefault(i + 3) != null)
                 {
 
                     <div class="single-popular-carusel col-lg-3 col-md-6">
@@ -102,17 +111,19 @@
                             </div>
                         </div>
                         <div class="details">
-                            <a href="course-details.html">
+                            @{
+                                string address3 = "/Student/EnrollCourse/" + Model.allCourses[i + 3].Id;
+                            }
+                            <a href=@address3>
                                 <h4>
                                     @Model.allCourses[i + 3].Name
                                 </h4>
                             </a>
                         </div>
                     </div>
-                 }
-                </div>
-            }
+                                }
+            </div>
+                                }
     </div>
 </section>
 <!-- End popular-courses Area -->
-

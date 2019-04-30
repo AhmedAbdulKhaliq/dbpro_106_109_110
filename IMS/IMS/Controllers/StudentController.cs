@@ -20,15 +20,48 @@ namespace IMS.Controllers
             return View(model);
         }
 
-        public ActionResult CourseDetails()
+        public ActionResult EnrollCourse(int Id)
         {
-            return View();
+            return View(db.Courses.Single(x => x.Id == Id));
+
         }
+
+        [HttpPost]
+        public ActionResult EnrollCourse(int Id, Course model)
+        {
+            bool alreadyEnrolled = false;
+            var course = db.Courses.Single(x => x.Id == Id);
+            var user = db.AspNetUsers.Single(x => x.UserName == User.Identity.Name);
+            List<StudentEnrollment> studentEnrolls = db.StudentEnrollments.ToList();
+            if (studentEnrolls != null)
+            {
+                foreach(StudentEnrollment s in studentEnrolls)
+                {
+                    if(s.AspNetUser == user && s.Course == course)
+                    {
+                        alreadyEnrolled = true;
+                        break;
+                    }
+                }
+            }
+            if(!alreadyEnrolled)
+            {
+                StudentEnrollment enrollment = new StudentEnrollment();
+                enrollment.AspNetUser = user;
+                enrollment.Course = course;
+                enrollment.DateOfEnrollment = DateTime.Now.Date;
+                db.StudentEnrollments.Add(enrollment);
+                db.SaveChanges();
+            }
+            return EnrollCourse(course.Id);
+        } 
 
         public ActionResult AttemptFinalQuiz()
         {
             return View();
         }
+
+
 
 
         [HttpPost]

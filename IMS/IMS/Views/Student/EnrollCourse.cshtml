@@ -1,0 +1,80 @@
+﻿@model IMS.Course
+@{
+    ViewBag.Title = "CourseDetails";
+    Layout = "~/Views/Shared/_Layout_Student.cshtml";
+}
+@{ 
+    String route = "/Student/EnrollCourse/" + @Model.Id;
+}
+
+      
+<form class="form-wrap" action=@route style="padding-top:0em" method="post" enctype="multipart/form-data">
+    <!-- Start course-details Area -->
+    <section class="course-details-area pt-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 left-contents">
+                    <div class="main-image">
+                        <img class="img-fluid" src=@Model.ImagePath alt="">
+                    </div>
+                </div>
+                <div class="col-lg-4 right-contents">
+                    <ul>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Trainer’s Name</p>
+                                @{
+                                    string firstName = "";
+                                    string lastName = "";
+                                    if (Model.CourseInstructors.Count() != 0)
+                                    {
+                                        firstName = Model.CourseInstructors.Single(x => x.CourseId == Model.Id).AspNetUser.FirstName;
+                                        lastName = Model.CourseInstructors.Single(x => x.CourseId == Model.Id).AspNetUser.LastName;
+                                    }
+                                }
+                                <span class="or">@firstName @lastName</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Course Fee </p>
+                                <span>@Model.Fee</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Start Date </p>
+                                <span>@Model.StartDate.Day / @Model.StartDate.Month / @Model.StartDate.Year</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>End Date </p>
+                                <span>@Model.EndDate.Day / @Model.EndDate.Month / @Model.EndDate.Year</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Type </p>
+                                @{
+                                    string type;
+                                    if (Model.Type == 0)
+                                    {
+                                        type = "Short";
+                                    }
+                                    else
+                                    {
+                                        type = "Full";
+                                    }
+                                }
+                                <span>@type</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <button class="primary-btn text-uppercase">Enroll Course</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End course-details Area -->
+</form>
