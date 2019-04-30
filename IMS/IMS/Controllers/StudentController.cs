@@ -7,6 +7,8 @@ using IMS.Models;
 
 namespace IMS.Controllers
 {
+
+    [Authorize(Roles = "Student")]
     public class StudentController : Controller
     {
         DB44Entities db = new DB44Entities();

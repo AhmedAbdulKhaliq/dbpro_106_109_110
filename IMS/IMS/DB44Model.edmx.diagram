@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9e63c68fc4624815be07bc4e73fccba6" Name="Diagram1">
+      <Diagram DiagramId="afa98d04e8d441c083ea60f1c87c6d0d" Name="Diagram1">
         <EntityTypeShape EntityType="DB44Model.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB44Model.Announcement" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DB44Model.Answer" Width="1.5" PointX="7.5" PointY="15" IsExpanded="true" />
@@ -30,7 +30,7 @@
         <AssociationConnector Association="DB44Model.FK__CorrectAn__Quest__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.FK__CourseIns__Cours__24927208" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.FK__FinalResu__Cours__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="DB44Model.FK__Question__Course__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK__Question__Course__5DCAEF64" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.FK__StudentEn__Cours__29572725" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.FK__StudentFe__Cours__2B3F6F97" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.AspNetUserRoles" ManuallyRouted="false" />

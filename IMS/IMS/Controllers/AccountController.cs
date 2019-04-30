@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using IMS.Models;
+using System.Collections.Generic;
 
 namespace IMS.Controllers
 {
@@ -79,6 +80,23 @@ namespace IMS.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    if(returnUrl == "default")
+                    {
+                        DB44Entities db = new DB44Entities();
+                        var user = db.AspNetUsers.Single(i => i.UserName == User.Identity.Name);
+                        if (UserManager.IsInRole(user.Id, "Admin"))
+                        {
+                            return RedirectToAction("Index", "Admin");
+                        }
+                        if (UserManager.IsInRole(user.Id, "Instructor"))
+                        {
+                            return RedirectToAction("Index", "Instructor");
+                        }
+                        if (UserManager.IsInRole(user.Id, "Student"))
+                        {
+                           return RedirectToAction("Index", "Student");
+                        }
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -147,7 +165,7 @@ namespace IMS.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(HomeViewModels.HomeModel model)
         {
             if (ModelState.IsValid)
             {
@@ -160,7 +178,6 @@ namespace IMS.Controllers
                 {
                     UserManager.AddToRole(user.Id, "Student");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -173,7 +190,7 @@ namespace IMS.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View("~/Views/Home/Index.cshtml", model);
         }
 
         //

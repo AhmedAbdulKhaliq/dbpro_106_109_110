@@ -7,6 +7,7 @@ using IMS.Models;
 
 namespace IMS.Controllers
 {
+    [Authorize(Roles = "Instructor")]
     public class InstructorController : Controller
     {
         DB44Entities db = new DB44Entities();
@@ -14,7 +15,7 @@ namespace IMS.Controllers
         public ActionResult Index()
         {
             InstructorModels.AddQuestionsModel model = new InstructorModels.AddQuestionsModel();
-            var user = db.AspNetUsers.Single(u => u.UserName == "ahmed1026ak@gmail.co");
+            var user = db.AspNetUsers.Single(u => u.UserName == User.Identity.Name);
             foreach(CourseInstructor assignment in db.CourseInstructors)
             {
                 if(assignment.AspNetUser == user)

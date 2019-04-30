@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model IMS.Models.HomeViewModels.HomeModel
+
+<!DOCTYPE html>
 <html>
 <head>
     <!-- Mobile Specific Meta -->
@@ -41,7 +43,7 @@
                     <ul class="nav-menu">
                         <li>@Html.ActionLink("Courses", "Index", "Home")</li>
                         <li>@Html.ActionLink("Instructors", "Instructors", "Home")</li>
-                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                        <li>@Html.ActionLink("Login", "Login", "Account", new { returnUrl = "default" }, null)</li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
@@ -60,6 +62,21 @@
                         <a href="#" class="primary-btn text-uppercase">Get Started</a>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-6 search-course-right section-gap" >
+                    <form class="form-wrap" action="/Account/Register" style="padding-top:0em" method="post">
+                        @Html.AntiForgeryToken()
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Enter First Name" })
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Enter Last Name" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email" })
+                        @Html.TextBoxFor(m => m.Contact, new { @class = "form-control", placeholder = "Enter Phone Number" })
+                        @Html.TextBoxFor(m => m.Cnic, new { @class = "form-control", placeholder = "Enter CNIC" })
+                        @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = "Enter City" })
+                        @Html.TextBoxFor(m => m.DOB, new { @type = "date", @class = "form-control", placeholder = "Enter Date Of Birth" })
+                        @Html.TextBoxFor(m => m.Password, new { @type = "password", @class = "form-control", placeholder = "Enter Password" })
+                        <button class="primary-btn text-uppercase">Register</button>
+                      </form>
+
+</div>
             </div>
         </div>
     </section>

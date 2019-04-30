@@ -12,8 +12,7 @@ namespace IMS.Controllers
         DB44Entities db = new DB44Entities();
         public ActionResult Index()
         {
-            CourseModels.ShowCoursesModel model = new CourseModels.ShowCoursesModel();
-            model.allCourses = db.Courses.ToList();
+            HomeViewModels.HomeModel model = new HomeViewModels.HomeModel();
             return View(model);
         }
 

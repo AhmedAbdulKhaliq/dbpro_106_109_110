@@ -250,7 +250,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Question__Course__34C8D9D1">
+  <Association Name="FK__Question__Course__5DCAEF64">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
     <End Role="Question" Type="Self.Question" Multiplicity="*" />
     <ReferentialConstraint>
@@ -426,7 +426,7 @@ warning 6002: The table/view 'DB44.dbo.StudentEnrollment' does not have a primar
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="FinalResult" EntitySet="FinalResult" />
     </AssociationSet>
-    <AssociationSet Name="FK__Question__Course__34C8D9D1" Association="Self.FK__Question__Course__34C8D9D1">
+    <AssociationSet Name="FK__Question__Course__5DCAEF64" Association="Self.FK__Question__Course__5DCAEF64">
       <End Role="Course" EntitySet="Course" />
       <End Role="Question" EntitySet="Question" />
     </AssociationSet>

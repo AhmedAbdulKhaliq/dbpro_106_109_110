@@ -38,10 +38,21 @@
                     <a href="index.html"><img src="~/Content/img/logo.png" alt="" title="" /></a>
                 </div>
                 <nav id="nav-menu-container">
-                    <ul class="nav-menu">
-                        <li>@Html.ActionLink("Courses", "Courses", "Student")</li>
-                        <li>Log Out</li>
-                    </ul>
+                    @{ 
+                        DB44Entities db = new DB44Entities();
+                        var user = db.AspNetUsers.Single(x => x.UserName == User.Identity.Name);
+                    }
+                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                        @Html.AntiForgeryToken()
+
+                        <ul class="nav-menu">
+                            <li>@Html.ActionLink("Welcome, " + user.FirstName + " " + user.LastName, "Courses", "Student")</li>
+                            <li>@Html.ActionLink("Courses", "Courses", "Student")</li>
+                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                        </ul>
+                        }
+
                 </nav><!-- #nav-menu-container -->
             </div>
         </div>

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace IMS.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         DB44Entities db = new DB44Entities();
@@ -62,7 +63,7 @@ namespace IMS.Controllers
         }
         public ActionResult ManageInstructors()
         {
-            
+            AccountController temp = new AccountController();
             return View(getInstructors());
         }
         public ActionResult Courses()
@@ -262,8 +263,9 @@ namespace IMS.Controllers
             }
         }
 
-        private List<AspNetUser> getInstructors()
+        public List<AspNetUser> getInstructors()
         {
+            DB44Entities db = new DB44Entities();
             List<AspNetUser> instructors = new List<AspNetUser>();
             foreach (AspNetUser u in db.AspNetUsers.ToList())
             {

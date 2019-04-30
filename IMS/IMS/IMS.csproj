@@ -239,6 +239,7 @@
     <Compile Include="Models\AnnouncemtentModels.cs" />
     <Compile Include="Models\CourseModels.cs" />
     <Compile Include="Models\FeeModels.cs" />
+    <Compile Include="Models\HomeViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\StudentModels.cs" />
@@ -502,6 +503,7 @@
     <Content Include="Views\Instructor\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Instructor.cshtml" />
     <Content Include="Views\Student\AttemptFinalQuiz.cshtml" />
+    <Content Include="Views\Shared\_Layout_Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
