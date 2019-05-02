@@ -62,8 +62,6 @@ namespace IMS.Controllers
         }
 
 
-
-
         [HttpPost]
         public ActionResult Register(StudentModels.StudentRegisterModel item)
         {

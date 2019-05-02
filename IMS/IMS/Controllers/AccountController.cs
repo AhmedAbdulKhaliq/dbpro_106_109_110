@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using IMS.Models;
 using System.Collections.Generic;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace IMS.Controllers
 {
@@ -500,6 +501,72 @@ namespace IMS.Controllers
                 }
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
+        }
+
+        public static async void PopulateDB()
+        {
+            var roleManager = new RoleManager<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+            //var userManager = new UserManager<Microsoft.AspNet.Identity.EntityFramework.IdentityUser>(new UserStore<ApplicationUser>(new DB44Entities()));
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            //ApplicationUserManager userM = new ApplicationUserManager();
+            if (!roleManager.RoleExists("Student"))
+            {
+                var role = new IdentityRole();
+                role.Name = "Student";
+                roleManager.Create(role);
+
+            }
+            if (!roleManager.RoleExists("Instructor"))
+            {
+                var role = new IdentityRole();
+                role.Name = "Instructor";
+                roleManager.Create(role);
+
+            }
+            if (!roleManager.RoleExists("Admin"))
+            {
+                var role = new IdentityRole();
+                role.Name = "Admin";
+                roleManager.Create(role);
+
+            }
+            bool adminExists = false;
+            using (DB44Entities db = new DB44Entities())
+            {
+                AspNetRole role = db.AspNetRoles.Single(x => x.Name == "Admin");
+                foreach (AspNetUser u in db.AspNetUsers.ToList())
+                {
+                    if (u.AspNetRoles.Contains(role))
+                    {
+                        adminExists = true;
+                        break;
+                    }
+                }
+            }
+            using (new ApplicationDbContext())
+            {
+                if (!adminExists)
+                {
+                    var user = new ApplicationUser
+                    {
+                        UserName = "admin@ims.com",
+                        Email = "admin@ims.com",
+                        FirstName = "Admin",
+                        LastName = "Admin",
+                        City = "City",
+                        Cnic = "1234567890000",
+                        Contact = "03000000000",
+                        DOB = DateTime.Now.Date,
+                        RegistrationDate = DateTime.Now.Date
+                    };
+                    var result = await userManager.CreateAsync(user, "Admin@123");
+                    if (result.Succeeded)
+                    {
+                        userManager.AddToRole(user.Id, "Admin");
+                    }
+                }
+            }
+            
         }
         #endregion
     }
