@@ -17,5 +17,8 @@ namespace IMS.Models
 
         public int CourseId { get; set; }
         public List<Course> StudenstCourses = new List<Course>();
+        //
+        //
+
     }
 }
