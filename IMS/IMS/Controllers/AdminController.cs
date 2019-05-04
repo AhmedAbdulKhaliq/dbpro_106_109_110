@@ -57,9 +57,17 @@ namespace IMS.Controllers
             List<Announcement> AllAnnoucement = db.Announcements.ToList();
             return View(AllAnnoucement);
         }
+        [HttpGet]
         public ActionResult ManageStudent()
         {
-            return View();
+            FeeModels model = new FeeModels();
+            List<Course> AllCourses = db.Courses.ToList();
+            model.StudenstCourses = AllCourses.ToList();
+            model.AllStudents = getStudents();
+            
+
+
+            return View(model);
         }
         public ActionResult ManageInstructors()
         {
@@ -133,6 +141,7 @@ namespace IMS.Controllers
             model.allCourses = db.Courses;
             return View(model);
         }
+       
 
         [HttpGet]
         public ActionResult AssignCourse(string Id)
@@ -183,6 +192,28 @@ namespace IMS.Controllers
             db.Courses.Add(temp);
             db.SaveChanges();
             return RedirectToAction("AddCourse");
+        }
+        [HttpPost]
+        public ActionResult ManageStudent(FeeModels item)
+        {
+            StudentFee temp = new StudentFee();
+            temp.StudentId = item.StudentId;
+            temp.CourseId = item.CourseId;
+
+            if (item.isPaid)
+            {
+                temp.IsPaid = 1;
+            }
+            else
+            {
+                temp.IsPaid = 0;
+            }
+            temp.PaymentDate = item.PaymentDate;
+
+
+            db.StudentFees.Add(temp);
+            db.SaveChanges();
+            return RedirectToAction("ManageStudent");
         }
 
         [HttpGet]
@@ -276,5 +307,20 @@ namespace IMS.Controllers
             }
             return instructors;
         }
+        public List<AspNetUser> getStudents()
+        {
+            DB44Entities db = new DB44Entities();
+            List<AspNetUser> students = new List<AspNetUser>();
+            foreach(AspNetUser u in db.AspNetUsers.ToList())
+            {
+                if (UserManager.IsInRole(u.Id, "Student"))
+                {
+                    students.Add(u);
+                }
+            }
+            return students;
+            
+        }
+
     }
 }

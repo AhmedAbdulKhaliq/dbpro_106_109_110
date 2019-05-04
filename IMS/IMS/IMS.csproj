@@ -489,7 +489,6 @@
     <Content Include="Views\Admin\AddCourse.cshtml" />
     <Content Include="Views\Admin\ManageCourses.cshtml" />
     <Content Include="Views\Admin\ManageAnnoucements.cshtml" />
-    <Content Include="Views\Admin\ManageStudent.cshtml" />
     <Content Include="Views\Admin\ManageInstructors.cshtml" />
     <Content Include="Views\Admin\Courses.cshtml" />
     <Content Include="Views\Admin\AssignCourse.cshtml" />
@@ -505,6 +504,7 @@
     <Content Include="Views\Student\AttemptFinalQuiz.cshtml" />
     <Content Include="Views\Shared\_Layout_Home.cshtml" />
     <Content Include="Views\Student\EnrolledCourses.cshtml" />
+    <Content Include="Views\Admin\ManageStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

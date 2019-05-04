@@ -1,8 +1,38 @@
-﻿@model IMS.Models.FeeModels.FeeStatus
+﻿@model IMS.Models.FeeModels
+
 @{
-    ViewBag.Title = "manageStudent";
+    ViewBag.Title = "ManageStudent";
     Layout = "~/Views/Shared/_Layout_Admin.cshtml";
 }
 
+<h2>ManageStudent</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="col-lg-6 col-md-6 ">
+            <form class="form-wrap" action="/Admin/ManageStudent" style="padding-top:0em" method="post" enctype="multipart/form-data">
+                <hr />
 
 
+                @Html.DropDownListFor(m => m.CourseId, new SelectList(Model.StudenstCourses, "Id", "Name"), "Select Course", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CourseId)
+                <br />
+                @Html.DropDownListFor(m => m.StudentId, new SelectList(Model.AllStudents, "Id", "FirstName"), "Select Student", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StudentId)
+                <br />
+                @Html.LabelFor(m => m.PaymentDate)
+                @Html.TextBoxFor(m => m.PaymentDate, new { @type = "date", @class = "form-control", placeholder = "Enter Payment Date", @value = DateTime.Now.Date })
+                <br />
+                @Html.CheckBoxFor(m => m.isPaid, new { @checked = "checked" })  Fee Status
+                <br />
+
+                <input type="submit" value="Mark Fee" class="btn btn-default" />
+
+
+            </form>
+        </div>
+       </div>
+
+}
