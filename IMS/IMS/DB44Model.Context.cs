@@ -36,8 +36,8 @@ namespace IMS
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<CourseInstructor> CourseInstructors { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
+        public virtual DbSet<StudentEnrollment> StudentEnrollments { get; set; }
         public virtual DbSet<StudentFee> StudentFees { get; set; }
         public virtual DbSet<FinalResult> FinalResults { get; set; }
-        public virtual DbSet<StudentEnrollment> StudentEnrollments { get; set; }
     }
 }

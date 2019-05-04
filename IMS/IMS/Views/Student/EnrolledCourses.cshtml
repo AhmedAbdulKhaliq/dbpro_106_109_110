@@ -1,0 +1,157 @@
+﻿@model IMS.Models.StudentModels.CoursesViewModel
+@{
+    ViewBag.Title = "EnrolledCourses";
+    Layout = "~/Views/Shared/_Layout_Student.cshtml";
+}
+
+<!-- Start popular-courses Area -->
+<section class="popular-courses-area section-gap courses-page">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Popular Courses we offer</h1>
+                    <p>There is a moment in the life of any aspiring.</p>
+                </div>
+            </div>
+        </div>
+        @for (int i = 0; i < Model.allCourses.Count(); i += 4)
+        {
+            <div class="row">
+                @if (Model.allCourses.ElementAtOrDefault(i) != null)
+                {
+
+                    <div class="single-popular-carusel col-lg-3 col-md-6">
+                        <div class="thumb-wrap relative">
+                            <div class="thumb relative">
+                                <div class="overlay overlay-bg"></div>
+                                <span class="img-fluid"><img src=@Model.allCourses[i].ImagePath alt=""></span>
+                            </div>
+                            <div class="meta d-flex justify-content-between">
+                            </div>
+                        </div>
+                        <div class="meta d-flex justify-content-between">
+                            <div class="details">
+                                <a href=#>
+                                    <h4>
+                                        @Model.allCourses[i].Name
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="details">
+                                @{
+                                    string address = "/Student/AttemptFinalQuiz/" + Model.allCourses[i].Id;
+                                }
+                                <a href=@address>
+                                    <h4>
+                                        Take Test
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                                }
+               @if (Model.allCourses.ElementAtOrDefault(i + 1) != null)
+                {
+
+                <div class="single-popular-carusel col-lg-3 col-md-6">
+                    <div class="thumb-wrap relative">
+                        <div class="thumb relative">
+                            <div class="overlay overlay-bg"></div>
+                            <span class="img-fluid"><img src=@Model.allCourses[i + 1].ImagePath alt=""></span>
+                        </div>
+                        <div class="meta d-flex justify-content-between">
+                        </div>
+                    </div>
+                    <div class="meta d-flex justify-content-between">
+                        <div class="details">
+                            <a href=#>
+                                <h4>
+                                    @Model.allCourses[i + 1].Name
+                                </h4>
+                            </a>
+                        </div>
+                        <div class="details">
+                            @{
+                                string address1 = "/Student/AttemptFinalQuiz/" + Model.allCourses[i + 1].Id;
+                            }
+                            <a href=@address1>
+                                <h4>
+                                    Take Test
+                                </h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                                }
+                @if (Model.allCourses.ElementAtOrDefault(i + 2) != null)
+                {
+
+                    <div class="single-popular-carusel col-lg-3 col-md-6">
+                        <div class="thumb-wrap relative">
+                            <div class="thumb relative">
+                                <div class="overlay overlay-bg"></div>
+                                <span class="img-fluid"><img src=@Model.allCourses[i + 2].ImagePath alt=""></span>
+                            </div>
+                            <div class="meta d-flex justify-content-between">
+                            </div>
+                        </div>
+                        <div class="meta d-flex justify-content-between">
+                            <div class="details">
+                                <a href=#>
+                                    <h4>
+                                        @Model.allCourses[i + 2].Name
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="details">
+                                @{
+                                    string address2 = "/Student/AttemptFinalQuiz/" + Model.allCourses[i + 2].Id;
+                                }
+                                <a href=@address2>
+                                    <h4>
+                                        Take Test
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                                    }
+                @if (Model.allCourses.ElementAtOrDefault(i + 3) != null)
+                {
+
+                    <div class="single-popular-carusel col-lg-3 col-md-6">
+                        <div class="thumb-wrap relative">
+                            <div class="thumb relative">
+                                <div class="overlay overlay-bg"></div>
+                                <span class="img-fluid"><img src=@Model.allCourses[i + 3].ImagePath alt=""></span>
+                            </div>
+                            <div class="meta d-flex justify-content-between">
+                            </div>
+                        </div>
+                        <div class="meta d-flex justify-content-between">
+                            <div class="details">
+                                <a href=#>
+                                    <h4>
+                                        @Model.allCourses[i + 3].Name
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="details">
+                                @{
+                                    string address3 = "/Student/AttemptFinalQuiz/" + Model.allCourses[i + 3].Id;
+                                }
+                                <a href=@address3>
+                                    <h4>
+                                        Take Test
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                                    }
+            </div>
+                                }
+    </div>
+</section>
+<!-- End popular-courses Area -->

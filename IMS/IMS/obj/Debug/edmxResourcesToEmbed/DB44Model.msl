@@ -122,6 +122,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="StudentEnrollments">
+      <EntityTypeMapping TypeName="DB44Model.StudentEnrollment">
+        <MappingFragment StoreEntitySet="StudentEnrollment">
+          <ScalarProperty Name="DateOfEnrollment" ColumnName="DateOfEnrollment" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="StudentFees">
       <EntityTypeMapping TypeName="DB44Model.StudentFee">
         <MappingFragment StoreEntitySet="StudentFee">
@@ -139,15 +148,6 @@
           <ScalarProperty Name="CourseId" ColumnName="CourseId" />
           <ScalarProperty Name="StudentId" ColumnName="StudentId" />
           <ScalarProperty Name="Marks" ColumnName="Marks" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="StudentEnrollments">
-      <EntityTypeMapping TypeName="DB44Model.StudentEnrollment">
-        <MappingFragment StoreEntitySet="StudentEnrollment">
-          <ScalarProperty Name="DateOfEnrollment" ColumnName="DateOfEnrollment" />
-          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

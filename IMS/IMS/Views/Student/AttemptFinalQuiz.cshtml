@@ -1,26 +1,22 @@
 ﻿@{
     ViewBag.Title = "AttemptFinalQuiz";
     Layout = "~/Views/Shared/_Layout_Student.cshtml";
+    
 }
-<!DOCTYPE html>
-<html>
-<body>
+
+@model IMS.Models.StudentModels.FinalQuizModel
+
+
     <div id="page-wrap">
 
         <h1>Final Quiz for Dorkitude</h1>
 
-        <form action="grade.php" method="post" id="quiz">
-
-            <ol>
-
-                <li>
-
+        @Html.BeginForm() {
+            @foreach(Question q in Model.course.Questions)
+            {
+                
+            }
                     <h3>CSS Stands for...</h3>
-
-                    <div>
-                        <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A">
-                        <label for="question-1-answers-A">A) Computer Styled Sections </label>
-                    </div>
 
                     <div>
                         <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B">
@@ -147,7 +143,7 @@
 
             <input type="submit" value="Submit Quiz">
 
-        </form>
+        }
 
     </div>
 </body>

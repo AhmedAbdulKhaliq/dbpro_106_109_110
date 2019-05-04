@@ -504,6 +504,7 @@
     <Content Include="Views\Shared\_Layout_Instructor.cshtml" />
     <Content Include="Views\Student\AttemptFinalQuiz.cshtml" />
     <Content Include="Views\Shared\_Layout_Home.cshtml" />
+    <Content Include="Views\Student\EnrolledCourses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

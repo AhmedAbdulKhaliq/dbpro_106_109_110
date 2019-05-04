@@ -8,7 +8,7 @@ using IMS.Models;
 namespace IMS.Controllers
 {
 
-    [Authorize(Roles = "Student")]
+    //[Authorize(Roles = "Student")]
     public class StudentController : Controller
     {
         DB44Entities db = new DB44Entities();
@@ -56,31 +56,30 @@ namespace IMS.Controllers
             return EnrollCourse(course.Id);
         } 
 
-        public ActionResult AttemptFinalQuiz()
+        public ActionResult AttemptFinalQuiz(int Id)
         {
-            return View();
+            DB44Entities db = new DB44Entities();
+            StudentModels.FinalQuizModel model = new StudentModels.FinalQuizModel();
+            model.course = db.Courses.SingleOrDefault(i => i.Id == Id);
+            foreach(Question q in model.course.Questions)
+            {
+                model.questions.Add(q);
+            }
+            return View(model);
         }
 
-
-        [HttpPost]
-        public ActionResult Register(StudentModels.StudentRegisterModel item)
+        public ActionResult EnrolledCourses()
         {
-            //DB44Entities db = new DB44Entities();
-            ApplicationUser temp = new ApplicationUser();
-            ////Student temp = new Student();
-            //temp.FirstName = item.FirstName;
-            //temp.LastName = item.LastName;
-            //temp.Email = item.Email;
-            //temp.Contact = item.Contact;
-            //temp.Cnic = item.Cnic;
-            //temp.City = item.City;
-            //temp.DOB = Convert.ToDateTime(item.DOB).Date;
-            //temp.Password = item.Password;
-            //temp.RegistrationDate = DateTime.Now.Date;
-            
-            ////db.Students.Add(temp);
-            //db.SaveChanges();
-            return RedirectToAction("Index", "Home");
-        }
+            StudentModels.CoursesViewModel model = new StudentModels.CoursesViewModel();
+            List<Course> courses = new List<Course>();
+            var user = db.AspNetUsers.Single(i => i.UserName == User.Identity.Name);
+            foreach(StudentEnrollment se in user.StudentEnrollments)
+            {
+                courses.Add(se.Course);
+            }
+            model.allCourses = courses;
+            return View(model);
+         }
+
     }
 }

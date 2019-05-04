@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="afa98d04e8d441c083ea60f1c87c6d0d" Name="Diagram1">
+      <Diagram DiagramId="5e7a7acb6f6d4763b3caea7f7e10cbaf" Name="Diagram1">
         <EntityTypeShape EntityType="DB44Model.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB44Model.Announcement" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DB44Model.Answer" Width="1.5" PointX="7.5" PointY="15" IsExpanded="true" />
@@ -16,9 +16,9 @@
         <EntityTypeShape EntityType="DB44Model.Course" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB44Model.CourseInstructor" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DB44Model.Question" Width="1.5" PointX="5.25" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB44Model.StudentFee" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB44Model.FinalResult" Width="1.5" PointX="8.25" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB44Model.StudentEnrollment" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.StudentEnrollment" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.StudentFee" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB44Model.FinalResult" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
         <AssociationConnector Association="DB44Model.FK__Announcem__Cours__20C1E124" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.FK__Answer__Question__21B6055D" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
@@ -30,7 +30,7 @@
         <AssociationConnector Association="DB44Model.FK__CorrectAn__Quest__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.FK__CourseIns__Cours__24927208" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.FK__FinalResu__Cours__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="DB44Model.FK__Question__Course__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="DB44Model.FK__Question__Course__5EBF139D" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.FK__StudentEn__Cours__29572725" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.FK__StudentFe__Cours__2B3F6F97" ManuallyRouted="false" />
         <AssociationConnector Association="DB44Model.AspNetUserRoles" ManuallyRouted="false" />

@@ -48,7 +48,7 @@
 
                         <ul class="nav-menu">
                             <li>@Html.ActionLink("Welcome, " + user.FirstName + " " + user.LastName, "Courses", "Student")</li>
-                            
+                            <li>@Html.ActionLink("Enrolled Courses", "EnrolledCourses", "Student")</li>
                             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                         </ul>
                         }

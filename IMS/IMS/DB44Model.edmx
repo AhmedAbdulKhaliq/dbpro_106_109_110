@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DB44Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DB44Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -253,7 +253,7 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Question__Course__34C8D9D1">
+        <Association Name="FK__Question__Course__5EBF139D">
           <End Role="Course" Type="Self.Course" Multiplicity="1" />
           <End Role="Question" Type="Self.Question" Multiplicity="*" />
           <ReferentialConstraint>
@@ -423,7 +423,7 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="FinalResult" EntitySet="FinalResult" />
           </AssociationSet>
-          <AssociationSet Name="FK__Question__Course__34C8D9D1" Association="Self.FK__Question__Course__34C8D9D1">
+          <AssociationSet Name="FK__Question__Course__5EBF139D" Association="Self.FK__Question__Course__5EBF139D">
             <End Role="Course" EntitySet="Course" />
             <End Role="Question" EntitySet="Question" />
           </AssociationSet>
@@ -460,7 +460,8 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB44Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -576,7 +577,7 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
           <NavigationProperty Name="Announcements" Relationship="Self.FK__Announcem__Cours__20C1E124" FromRole="Course" ToRole="Announcement" />
           <NavigationProperty Name="CourseInstructors" Relationship="Self.FK__CourseIns__Cours__24927208" FromRole="Course" ToRole="CourseInstructor" />
           <NavigationProperty Name="FinalResults" Relationship="Self.FK__FinalResu__Cours__267ABA7A" FromRole="Course" ToRole="FinalResult" />
-          <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Course__5DCAEF64" FromRole="Course" ToRole="Question" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Course__5EBF139D" FromRole="Course" ToRole="Question" />
           <NavigationProperty Name="StudentEnrollments" Relationship="Self.FK__StudentEn__Cours__29572725" FromRole="Course" ToRole="StudentEnrollment" />
           <NavigationProperty Name="StudentFees" Relationship="Self.FK__StudentFe__Cours__2B3F6F97" FromRole="Course" ToRole="StudentFee" />
         </EntityType>
@@ -599,7 +600,18 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
           <Property Name="CourseId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Answers" Relationship="Self.FK__Answer__Question__21B6055D" FromRole="Question" ToRole="Answer" />
           <NavigationProperty Name="CorrectAnswers" Relationship="Self.FK__CorrectAn__Quest__300424B4" FromRole="Question" ToRole="CorrectAnswer" />
-          <NavigationProperty Name="Course" Relationship="Self.FK__Question__Course__5DCAEF64" FromRole="Question" ToRole="Course" />
+          <NavigationProperty Name="Course" Relationship="Self.FK__Question__Course__5EBF139D" FromRole="Question" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="StudentEnrollment">
+          <Key>
+            <PropertyRef Name="CourseId" />
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="DateOfEnrollment" Type="DateTime" Precision="0" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__StudentEn__Stude__5165187F" FromRole="StudentEnrollment" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Course" Relationship="Self.FK__StudentEn__Cours__29572725" FromRole="StudentEnrollment" ToRole="Course" />
         </EntityType>
         <EntityType Name="StudentFee">
           <Key>
@@ -624,17 +636,6 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
           <Property Name="Marks" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AspNetUser" Relationship="Self.FK__FinalResu__Stude__276EDEB3" FromRole="FinalResult" ToRole="AspNetUsers" />
           <NavigationProperty Name="Course" Relationship="Self.FK__FinalResu__Cours__267ABA7A" FromRole="FinalResult" ToRole="Course" />
-        </EntityType>
-        <EntityType Name="StudentEnrollment">
-          <Key>
-            <PropertyRef Name="CourseId" />
-            <PropertyRef Name="StudentId" />
-          </Key>
-          <Property Name="DateOfEnrollment" Type="DateTime" Precision="0" />
-          <Property Name="CourseId" Type="Int32" Nullable="false" />
-          <Property Name="StudentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__StudentEn__Stude__5165187F" FromRole="StudentEnrollment" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Course" Relationship="Self.FK__StudentEn__Cours__29572725" FromRole="StudentEnrollment" ToRole="Course" />
         </EntityType>
         <Association Name="FK__Announcem__Cours__20C1E124">
           <End Role="Course" Type="Self.Course" Multiplicity="1">
@@ -784,7 +785,7 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Question__Course__5DCAEF64">
+        <Association Name="FK__Question__Course__5EBF139D">
           <End Role="Course" Type="Self.Course" Multiplicity="1" />
           <End Role="Question" Type="Self.Question" Multiplicity="*" />
           <ReferentialConstraint>
@@ -840,9 +841,9 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
           <EntitySet Name="Courses" EntityType="Self.Course" />
           <EntitySet Name="CourseInstructors" EntityType="Self.CourseInstructor" />
           <EntitySet Name="Questions" EntityType="Self.Question" />
+          <EntitySet Name="StudentEnrollments" EntityType="Self.StudentEnrollment" />
           <EntitySet Name="StudentFees" EntityType="Self.StudentFee" />
           <EntitySet Name="FinalResults" EntityType="Self.FinalResult" />
-          <EntitySet Name="StudentEnrollments" EntityType="Self.StudentEnrollment" />
           <AssociationSet Name="FK__Announcem__Cours__20C1E124" Association="Self.FK__Announcem__Cours__20C1E124">
             <End Role="Course" EntitySet="Courses" />
             <End Role="Announcement" EntitySet="Announcements" />
@@ -887,7 +888,7 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
             <End Role="Course" EntitySet="Courses" />
             <End Role="FinalResult" EntitySet="FinalResults" />
           </AssociationSet>
-          <AssociationSet Name="FK__Question__Course__5DCAEF64" Association="Self.FK__Question__Course__5DCAEF64">
+          <AssociationSet Name="FK__Question__Course__5EBF139D" Association="Self.FK__Question__Course__5EBF139D">
             <End Role="Course" EntitySet="Courses" />
             <End Role="Question" EntitySet="Questions" />
           </AssociationSet>
@@ -1031,6 +1032,15 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="StudentEnrollments">
+            <EntityTypeMapping TypeName="DB44Model.StudentEnrollment">
+              <MappingFragment StoreEntitySet="StudentEnrollment">
+                <ScalarProperty Name="DateOfEnrollment" ColumnName="DateOfEnrollment" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="StudentFees">
             <EntityTypeMapping TypeName="DB44Model.StudentFee">
               <MappingFragment StoreEntitySet="StudentFee">
@@ -1048,15 +1058,6 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
                 <ScalarProperty Name="CourseId" ColumnName="CourseId" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="Marks" ColumnName="Marks" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="StudentEnrollments">
-            <EntityTypeMapping TypeName="DB44Model.StudentEnrollment">
-              <MappingFragment StoreEntitySet="StudentEnrollment">
-                <ScalarProperty Name="DateOfEnrollment" ColumnName="DateOfEnrollment" />
-                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

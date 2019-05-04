@@ -24,5 +24,11 @@ namespace IMS.Models
         {
             public List<Course> allCourses { get; set; }
         }
+
+        public class FinalQuizModel
+        {
+            public Course course { get; set; }
+            public List<Question> questions = new List<Question>();
+        }
     }
 }
