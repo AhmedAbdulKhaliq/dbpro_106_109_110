@@ -43,7 +43,7 @@
                         <li>@Html.ActionLink("Manage Annoucements", "ManageAnnoucements", "Admin")</li>
                         <li>@Html.ActionLink("Manage Students", "ManageStudent", "Admin")</li>
                         <li>@Html.ActionLink("Manage Instructors", "ManageInstructors", "Admin")</li>
-                        <li>Manage Reports</li>
+                        <li>@Html.ActionLink("Manage Reports", "ManageReports", "Admin")</li>
                         <li>Log Out</li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
@@ -63,6 +63,8 @@
                     @Html.ActionLink("Add Courses", "AddCourse", "Admin")
                     &nbsp;&nbsp;
                     @Html.ActionLink("Add Instructors", "AddInstructor", "Admin")
+                    &nbsp;&nbsp;
+                    @Html.ActionLink("Add Announcements", "AddAnnouncement", "Admin")
                 </div>
             </div>
         </div>

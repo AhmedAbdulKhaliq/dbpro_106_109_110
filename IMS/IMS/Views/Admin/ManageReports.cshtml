@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "ManageReports";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>ManageReports</h2>
+
+<div>
+    <table style="width:100%">
+        <tr>
+            <th>Index</th>
+            <th>Breifly Details Of Report</th>
+            <th>ReportGenerate</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Courses</td>
+            <td><a class="btn btn-success" href="@Url.Action("exportCourseReport")">Download Report</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Announcements</td>
+            <td><a class="btn btn-success" href="@Url.Action("exportAnnouncementReport")">Download Report</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Students</td>
+            <td><a class="btn btn-success" href="@Url.Action("exportStudentReport")">Download Report</a></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Instructors</td>
+            <td><a class="btn btn-success" href="@Url.Action("exportInstructorReport")">Download Report</a></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Courses allocated to Instructors</td>
+            <td><a class="btn btn-success" href="@Url.Action("exportCourseInstructorReport")">Download Report</a></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Students enrolled in Courses</td>
+            <td><a class="btn btn-success" href="@Url.Action("exportStudentEnrollmentReport")">Download Report</a></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Students Fee in Courses</td>
+            <td><a class="btn btn-success" href="@Url.Action("exportStudentFeeReport")">Download Report</a></td>
+        </tr>
+    </table>
+</div>

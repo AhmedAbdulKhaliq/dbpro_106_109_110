@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using System;
 
 namespace IMS.Models
 {
@@ -82,5 +83,37 @@ namespace IMS.Models
     {
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
+    }
+    public class CourseReport
+    {
+        public string CourseName { get; set; }
+        public string CourseType { get; set; }
+        public int CourseFee { get; set; }
+        public DateTime CourseStartDate { get; set; }
+        public DateTime CourseEndDate { get; set; }
+    }
+    public class AnnouncementReport
+    {
+        public string Announcement { get; set; }
+        public DateTime AnnouncementDate { get; set; }
+        public string CourseName { get; set; }
+    }
+    public class CourseInstructorReport
+    {
+        public string CourseName { get; set; }
+        public string InstructorName { get; set; }
+    }
+    public class StudentEnrollmentReport
+    {
+        public string CourseName { get; set; }
+        public string StudentName { get; set;}
+        public DateTime DateOfEnrollment { get; set; }
+    }
+    public class StudentFeeReport
+    {
+        public string CourseName { get; set; }
+        public string StudentName { get; set; }
+        public string FeePaid { get; set; }
+        public DateTime PaymentDate { get; set; }
     }
 }

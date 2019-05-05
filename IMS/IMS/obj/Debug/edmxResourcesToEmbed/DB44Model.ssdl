@@ -248,7 +248,7 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Question__Course__5EBF139D">
+  <Association Name="FK__Question__Course__37A5467C">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
     <End Role="Question" Type="Self.Question" Multiplicity="*" />
     <ReferentialConstraint>
@@ -418,7 +418,7 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="FinalResult" EntitySet="FinalResult" />
     </AssociationSet>
-    <AssociationSet Name="FK__Question__Course__5EBF139D" Association="Self.FK__Question__Course__5EBF139D">
+    <AssociationSet Name="FK__Question__Course__37A5467C" Association="Self.FK__Question__Course__37A5467C">
       <End Role="Course" EntitySet="Course" />
       <End Role="Question" EntitySet="Question" />
     </AssociationSet>

@@ -112,7 +112,7 @@
     <NavigationProperty Name="Announcements" Relationship="Self.FK__Announcem__Cours__20C1E124" FromRole="Course" ToRole="Announcement" />
     <NavigationProperty Name="CourseInstructors" Relationship="Self.FK__CourseIns__Cours__24927208" FromRole="Course" ToRole="CourseInstructor" />
     <NavigationProperty Name="FinalResults" Relationship="Self.FK__FinalResu__Cours__267ABA7A" FromRole="Course" ToRole="FinalResult" />
-    <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Course__5EBF139D" FromRole="Course" ToRole="Question" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Course__37A5467C" FromRole="Course" ToRole="Question" />
     <NavigationProperty Name="StudentEnrollments" Relationship="Self.FK__StudentEn__Cours__29572725" FromRole="Course" ToRole="StudentEnrollment" />
     <NavigationProperty Name="StudentFees" Relationship="Self.FK__StudentFe__Cours__2B3F6F97" FromRole="Course" ToRole="StudentFee" />
   </EntityType>
@@ -135,7 +135,7 @@
     <Property Name="CourseId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Answers" Relationship="Self.FK__Answer__Question__21B6055D" FromRole="Question" ToRole="Answer" />
     <NavigationProperty Name="CorrectAnswers" Relationship="Self.FK__CorrectAn__Quest__300424B4" FromRole="Question" ToRole="CorrectAnswer" />
-    <NavigationProperty Name="Course" Relationship="Self.FK__Question__Course__5EBF139D" FromRole="Question" ToRole="Course" />
+    <NavigationProperty Name="Course" Relationship="Self.FK__Question__Course__37A5467C" FromRole="Question" ToRole="Course" />
   </EntityType>
   <EntityType Name="StudentEnrollment">
     <Key>
@@ -320,7 +320,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Question__Course__5EBF139D">
+  <Association Name="FK__Question__Course__37A5467C">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
     <End Role="Question" Type="Self.Question" Multiplicity="*" />
     <ReferentialConstraint>
@@ -423,7 +423,7 @@
       <End Role="Course" EntitySet="Courses" />
       <End Role="FinalResult" EntitySet="FinalResults" />
     </AssociationSet>
-    <AssociationSet Name="FK__Question__Course__5EBF139D" Association="Self.FK__Question__Course__5EBF139D">
+    <AssociationSet Name="FK__Question__Course__37A5467C" Association="Self.FK__Question__Course__37A5467C">
       <End Role="Course" EntitySet="Courses" />
       <End Role="Question" EntitySet="Questions" />
     </AssociationSet>
