@@ -330,22 +330,17 @@ namespace IMS.Controllers
 
         public ActionResult exportCourseReport()
         {
-            CourseReport cr = new CourseReport();
-            List<CourseReport> cr_list = new List<CourseReport>();
-            foreach(Course c in db.Courses)
+            List<Course_Report_Result> cr_list = new List<Course_Report_Result>();
+            foreach(Course_Report_Result cr in db.Course_Report())
             {
-                cr.CourseName = c.Name;
-                if(c.Type == 0)
+                if(cr.Type == 0)
                 {
                     cr.CourseType = "Short";
                 }
-                if(c.Type == 1)
+                if(cr.Type == 1)
                 {
                     cr.CourseType = "Long";
                 }
-                cr.CourseFee = c.Fee;
-                cr.CourseStartDate = c.StartDate;
-                cr.CourseEndDate = c.EndDate;
                 cr_list.Add(cr);
             }
             ReportDocument rd = new ReportDocument();
@@ -367,24 +362,9 @@ namespace IMS.Controllers
         }
         public ActionResult exportAnnouncementReport()
         {
-            AnnouncementReport ar = new AnnouncementReport();
-            List<AnnouncementReport> ar_list = new List<AnnouncementReport>();
-            foreach(Announcement a in db.Announcements)
-            {
-                ar.Announcement = a.NewsText;
-                ar.AnnouncementDate = a.AnnoucementDate;
-                foreach(Course c in db.Courses)
-                {
-                    if(c.Id == a.CourseId)
-                    {
-                        ar.CourseName = c.Name;
-                    }
-                }
-                ar_list.Add(ar);
-            }
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Report"), "AnnouncementReport.rpt"));
-            rd.SetDataSource(ar_list);
+            rd.SetDataSource(db.Announcement_Report().ToList());
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearContent();
@@ -403,7 +383,7 @@ namespace IMS.Controllers
         {
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Report"), "StudentReport.rpt"));
-            rd.SetDataSource(getStudents());
+            rd.SetDataSource(db.Student_Report().ToList());
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearContent();
@@ -422,7 +402,7 @@ namespace IMS.Controllers
         {
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Report"), "InstructorReport.rpt"));
-            rd.SetDataSource(getInstructors());
+            rd.SetDataSource(db.Instructor_Report().ToList());
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearContent();
@@ -439,29 +419,9 @@ namespace IMS.Controllers
         }
         public ActionResult exportCourseInstructorReport()
         {
-            CourseInstructorReport cir = new CourseInstructorReport();
-            List<CourseInstructorReport> cir_list = new List<CourseInstructorReport>();
-            foreach(CourseInstructor ci in db.CourseInstructors)
-            {
-                foreach(Course c in db.Courses)
-                {
-                    if(ci.CourseId == c.Id)
-                    {
-                        cir.CourseName = c.Name;
-                    }
-                }
-                foreach(AspNetUser anu in db.AspNetUsers)
-                {
-                    if(ci.InstructorId == anu.Id)
-                    {
-                        cir.InstructorName = anu.FirstName + " " + anu.LastName;
-                    }
-                }
-                cir_list.Add(cir);
-            }
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Report"), "CourseInstructorReport.rpt"));
-            rd.SetDataSource(cir_list);
+            rd.SetDataSource(db.Course_Instructor_Report().ToList());
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearContent();
@@ -478,30 +438,9 @@ namespace IMS.Controllers
         }
         public ActionResult exportStudentEnrollmentReport()
         {
-            StudentEnrollmentReport ser = new StudentEnrollmentReport();
-            List<StudentEnrollmentReport> ser_list = new List<StudentEnrollmentReport>();
-            foreach(StudentEnrollment se in db.StudentEnrollments)
-            {
-                foreach(Course c in db.Courses)
-                {
-                    if(se.CourseId == c.Id)
-                    {
-                        ser.CourseName = c.Name;
-                    }
-                }
-                foreach(AspNetUser anu in db.AspNetUsers)
-                {
-                    if(se.StudentId == anu.Id)
-                    {
-                        ser.StudentName = anu.FirstName + " " + anu.LastName;
-                    }
-                }
-                ser.DateOfEnrollment = Convert.ToDateTime(se.DateOfEnrollment);
-                ser_list.Add(ser);
-            }
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Report"), "StudentEnrollmentReport.rpt"));
-            rd.SetDataSource(ser_list);
+            rd.SetDataSource(db.Student_Enrollment_Report().ToList());
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearContent();
@@ -518,33 +457,17 @@ namespace IMS.Controllers
         }
         public ActionResult exportStudentFeeReport()
         {
-            StudentFeeReport sfr = new StudentFeeReport();
-            List<StudentFeeReport> sfr_list = new List<StudentFeeReport>();
-            foreach(StudentFee sf in db.StudentFees)
+            List<Student_Fee_Report_Result> sfr_list = new List<Student_Fee_Report_Result>();
+            foreach(Student_Fee_Report_Result sfr in db.Student_Fee_Report().ToList())
             {
-                foreach(Course c in db.Courses)
-                {
-                    if(sf.CourseId == c.Id)
-                    {
-                        sfr.CourseName = c.Name;
-                    }
-                }
-                foreach(AspNetUser anu in db.AspNetUsers)
-                {
-                    if(sf.StudentId == anu.Id)
-                    {
-                        sfr.StudentName = anu.FirstName + " " + anu.LastName;
-                    }
-                }
-                if(sf.IsPaid == 1)
+                if(sfr.IsPaid == 1)
                 {
                     sfr.FeePaid = "Paid";
                 }
-                if(sf.IsPaid == 0)
+                if(sfr.IsPaid == 0)
                 {
                     sfr.FeePaid = "UnPaid";
                 }
-                sfr.PaymentDate = Convert.ToDateTime(sf.PaymentDate);
                 sfr_list.Add(sfr);
             }
             ReportDocument rd = new ReportDocument();

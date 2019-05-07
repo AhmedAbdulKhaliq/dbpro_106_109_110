@@ -12,6 +12,8 @@ namespace IMS
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DB44Entities : DbContext
     {
@@ -39,5 +41,40 @@ namespace IMS
         public virtual DbSet<StudentEnrollment> StudentEnrollments { get; set; }
         public virtual DbSet<StudentFee> StudentFees { get; set; }
         public virtual DbSet<FinalResult> FinalResults { get; set; }
+    
+        public virtual ObjectResult<Announcement_Report_Result> Announcement_Report()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Announcement_Report_Result>("Announcement_Report");
+        }
+    
+        public virtual ObjectResult<Course_Instructor_Report_Result> Course_Instructor_Report()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Course_Instructor_Report_Result>("Course_Instructor_Report");
+        }
+    
+        public virtual ObjectResult<Course_Report_Result> Course_Report()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Course_Report_Result>("Course_Report");
+        }
+    
+        public virtual ObjectResult<Instructor_Report_Result> Instructor_Report()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Instructor_Report_Result>("Instructor_Report");
+        }
+    
+        public virtual ObjectResult<Student_Enrollment_Report_Result> Student_Enrollment_Report()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Student_Enrollment_Report_Result>("Student_Enrollment_Report");
+        }
+    
+        public virtual ObjectResult<Student_Fee_Report_Result> Student_Fee_Report()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Student_Fee_Report_Result>("Student_Fee_Report");
+        }
+    
+        public virtual ObjectResult<Student_Report_Result> Student_Report()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Student_Report_Result>("Student_Report");
+        }
     }
 }

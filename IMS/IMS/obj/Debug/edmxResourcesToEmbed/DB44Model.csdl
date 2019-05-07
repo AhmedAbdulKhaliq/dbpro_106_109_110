@@ -63,7 +63,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
     <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -74,10 +74,10 @@
     <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
     <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Cnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -439,5 +439,55 @@
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <FunctionImport Name="Announcement_Report" ReturnType="Collection(DB44Model.Announcement_Report_Result)" />
+    <FunctionImport Name="Course_Instructor_Report" ReturnType="Collection(DB44Model.Course_Instructor_Report_Result)" />
+    <FunctionImport Name="Course_Report" ReturnType="Collection(DB44Model.Course_Report_Result)" />
+    <FunctionImport Name="Instructor_Report" ReturnType="Collection(DB44Model.Instructor_Report_Result)" />
+    <FunctionImport Name="Student_Enrollment_Report" ReturnType="Collection(DB44Model.Student_Enrollment_Report_Result)" />
+    <FunctionImport Name="Student_Fee_Report" ReturnType="Collection(DB44Model.Student_Fee_Report_Result)" />
+    <FunctionImport Name="Student_Report" ReturnType="Collection(DB44Model.Student_Report_Result)" />
   </EntityContainer>
+  <ComplexType Name="Announcement_Report_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="NewsText" Nullable="false" MaxLength="Max" />
+    <Property Type="DateTime" Name="AnnoucementDate" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Course_Instructor_Report_Result">
+    <Property Type="String" Name="InstructorName" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Course_Report_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Type" Nullable="false" />
+    <Property Type="Int32" Name="Fee" Nullable="false" />
+    <Property Type="DateTime" Name="StartDate" Nullable="false" />
+    <Property Type="DateTime" Name="EndDate" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Instructor_Report_Result">
+    <Property Type="String" Name="InstructorName" Nullable="true" />
+    <Property Type="String" Name="Contact" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="Cnic" Nullable="true" />
+    <Property Type="DateTime" Name="DOB" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="RegistrationDate" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Student_Enrollment_Report_Result">
+    <Property Type="String" Name="Student_Name" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="DateOfEnrollment" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Student_Fee_Report_Result">
+    <Property Type="String" Name="StudentName" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="PaymentDate" Nullable="true" />
+    <Property Type="Int32" Name="IsPaid" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Student_Report_Result">
+    <Property Type="String" Name="InstructorName" Nullable="true" />
+    <Property Type="String" Name="Contact" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="Cnic" Nullable="true" />
+    <Property Type="DateTime" Name="DOB" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="RegistrationDate" Nullable="false" Precision="23" />
+  </ComplexType>
 </Schema>

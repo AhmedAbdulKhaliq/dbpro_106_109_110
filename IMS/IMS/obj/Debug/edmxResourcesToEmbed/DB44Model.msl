@@ -159,5 +159,76 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="Announcement_Report" FunctionName="DB44Model.Store.Announcement_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB44Model.Announcement_Report_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NewsText" ColumnName="NewsText" />
+          <ScalarProperty Name="AnnoucementDate" ColumnName="AnnoucementDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Course_Instructor_Report" FunctionName="DB44Model.Store.Course_Instructor_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB44Model.Course_Instructor_Report_Result">
+          <ScalarProperty Name="InstructorName" ColumnName="InstructorName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Course_Report" FunctionName="DB44Model.Store.Course_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB44Model.Course_Report_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Instructor_Report" FunctionName="DB44Model.Store.Instructor_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB44Model.Instructor_Report_Result">
+          <ScalarProperty Name="InstructorName" ColumnName="InstructorName" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Student_Enrollment_Report" FunctionName="DB44Model.Store.Student_Enrollment_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB44Model.Student_Enrollment_Report_Result">
+          <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DateOfEnrollment" ColumnName="DateOfEnrollment" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Student_Fee_Report" FunctionName="DB44Model.Store.Student_Fee_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB44Model.Student_Fee_Report_Result">
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Student_Report" FunctionName="DB44Model.Store.Student_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB44Model.Student_Report_Result">
+          <ScalarProperty Name="InstructorName" ColumnName="InstructorName" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

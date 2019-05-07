@@ -170,6 +170,9 @@
     <Compile Include="Announcement.cs">
       <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Announcement_Report_Result.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Answer.cs">
       <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
@@ -205,6 +208,12 @@
     <Compile Include="CourseInstructor.cs">
       <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Course_Instructor_Report_Result.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Course_Report_Result.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
@@ -228,6 +237,9 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Instructor_Report_Result.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201904252008315_tables-add.cs" />
     <Compile Include="Migrations\201904252008315_tables-add.Designer.cs">
@@ -298,6 +310,15 @@
       <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentFee.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Enrollment_Report_Result.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Fee_Report_Result.cs">
+      <DependentUpon>DB44Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Report_Result.cs">
       <DependentUpon>DB44Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>

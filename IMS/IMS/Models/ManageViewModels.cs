@@ -106,7 +106,7 @@ namespace IMS.Models
     public class StudentEnrollmentReport
     {
         public string CourseName { get; set; }
-        public string StudentName { get; set;}
+        public string StudentName { get; set; }
         public DateTime DateOfEnrollment { get; set; }
     }
     public class StudentFeeReport
@@ -116,4 +116,5 @@ namespace IMS.Models
         public string FeePaid { get; set; }
         public DateTime PaymentDate { get; set; }
     }
+
 }

@@ -71,7 +71,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
           <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
           <Property Name="PasswordHash" Type="nvarchar(max)" />
           <Property Name="SecurityStamp" Type="nvarchar(max)" />
@@ -82,10 +82,10 @@
           <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Contact" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Cnic" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Contact" Type="nvarchar(max)" />
+          <Property Name="Cnic" Type="nvarchar(max)" />
           <Property Name="City" Type="nvarchar(max)" />
           <Property Name="DOB" Type="datetime" Nullable="false" />
           <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
@@ -373,6 +373,13 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Announcement_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Course_Instructor_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Course_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Instructor_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Student_Enrollment_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Student_Fee_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Student_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DB44ModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Announcement" EntityType="Self.Announcement" Schema="dbo" store:Type="Tables" />
@@ -528,7 +535,7 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
           <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -539,10 +546,10 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Cnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -904,7 +911,57 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <FunctionImport Name="Announcement_Report" ReturnType="Collection(DB44Model.Announcement_Report_Result)" />
+          <FunctionImport Name="Course_Instructor_Report" ReturnType="Collection(DB44Model.Course_Instructor_Report_Result)" />
+          <FunctionImport Name="Course_Report" ReturnType="Collection(DB44Model.Course_Report_Result)" />
+          <FunctionImport Name="Instructor_Report" ReturnType="Collection(DB44Model.Instructor_Report_Result)" />
+          <FunctionImport Name="Student_Enrollment_Report" ReturnType="Collection(DB44Model.Student_Enrollment_Report_Result)" />
+          <FunctionImport Name="Student_Fee_Report" ReturnType="Collection(DB44Model.Student_Fee_Report_Result)" />
+          <FunctionImport Name="Student_Report" ReturnType="Collection(DB44Model.Student_Report_Result)" />
         </EntityContainer>
+        <ComplexType Name="Announcement_Report_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NewsText" Nullable="false" MaxLength="Max" />
+          <Property Type="DateTime" Name="AnnoucementDate" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Course_Instructor_Report_Result">
+          <Property Type="String" Name="InstructorName" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Course_Report_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="Int32" Name="Fee" Nullable="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Instructor_Report_Result">
+          <Property Type="String" Name="InstructorName" Nullable="true" />
+          <Property Type="String" Name="Contact" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="Cnic" Nullable="true" />
+          <Property Type="DateTime" Name="DOB" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="RegistrationDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="Student_Enrollment_Report_Result">
+          <Property Type="String" Name="Student_Name" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="DateOfEnrollment" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Student_Fee_Report_Result">
+          <Property Type="String" Name="StudentName" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="PaymentDate" Nullable="true" />
+          <Property Type="Int32" Name="IsPaid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Student_Report_Result">
+          <Property Type="String" Name="InstructorName" Nullable="true" />
+          <Property Type="String" Name="Contact" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="Cnic" Nullable="true" />
+          <Property Type="DateTime" Name="DOB" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="RegistrationDate" Nullable="false" Precision="23" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1069,6 +1126,77 @@ warning 6002: The table/view 'DB44.dbo.FinalResult' does not have a primary key 
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="Announcement_Report" FunctionName="DB44Model.Store.Announcement_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB44Model.Announcement_Report_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NewsText" ColumnName="NewsText" />
+                <ScalarProperty Name="AnnoucementDate" ColumnName="AnnoucementDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Course_Instructor_Report" FunctionName="DB44Model.Store.Course_Instructor_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB44Model.Course_Instructor_Report_Result">
+                <ScalarProperty Name="InstructorName" ColumnName="InstructorName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Course_Report" FunctionName="DB44Model.Store.Course_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB44Model.Course_Report_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Instructor_Report" FunctionName="DB44Model.Store.Instructor_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB44Model.Instructor_Report_Result">
+                <ScalarProperty Name="InstructorName" ColumnName="InstructorName" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Student_Enrollment_Report" FunctionName="DB44Model.Store.Student_Enrollment_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB44Model.Student_Enrollment_Report_Result">
+                <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateOfEnrollment" ColumnName="DateOfEnrollment" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Student_Fee_Report" FunctionName="DB44Model.Store.Student_Fee_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB44Model.Student_Fee_Report_Result">
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Student_Report" FunctionName="DB44Model.Store.Student_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB44Model.Student_Report_Result">
+                <ScalarProperty Name="InstructorName" ColumnName="InstructorName" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

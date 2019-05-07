@@ -208,7 +208,6 @@ C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\bin\Microsoft
 C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\obj\Debug\IMS.csprojResolveAssemblyReference.cache
 C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\obj\Debug\IMS.Migrations.tablesadd.resources
 C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\obj\Debug\IMS.Migrations.addprofiledata.resources
 C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\obj\Debug\IMS.csproj.GenerateResource.Cache
@@ -230,3 +229,4 @@ C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\bin\CrystalDe
 C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\bin\stdole.dll
+C:\Users\Muhammad Awais\Downloads\dbpro_106_109_110-master\IMS\IMS\obj\Debug\IMS.csprojResolveAssemblyReference.cache
